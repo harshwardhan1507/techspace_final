@@ -12,8 +12,9 @@ export const heroData = {
     href: "#projects",
   },
   stats: [
-    { label: "Active Members", value: "200+" },
-    { label: "Projects Built", value: "50+" },
-    { label: "Hackathons Won", value: "15+" },
+    { label: "Members", value: "200+" },
+    { label: "Projects", value: "50+" },
+    { label: "Events", value: "30+" },
+    { label: "Workshops", value: "20+" },
   ],
 };

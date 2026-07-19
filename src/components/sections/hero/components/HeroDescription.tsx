@@ -6,7 +6,7 @@ interface HeroDescriptionProps {
 
 export function HeroDescription({ text }: HeroDescriptionProps) {
   return (
-    <p className="mt-6 text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl text-center leading-relaxed">
+    <p className="mt-6 text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl text-left leading-relaxed">
       {text}
     </p>
   );

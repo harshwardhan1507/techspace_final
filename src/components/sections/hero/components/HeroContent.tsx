@@ -8,10 +8,10 @@ import { HeroStats } from "./HeroStats";
 
 export function HeroContent() {
   return (
-    <div className="flex flex-col items-center justify-center w-full px-4 pt-24 pb-12 sm:px-6 lg:px-8">
+    <div className="flex flex-col items-start justify-center w-full max-w-2xl">
       <HeroBadge text={heroData.badge} />
       
-      <div className="mt-8 flex flex-col items-center">
+      <div className="mt-8 flex flex-col items-start">
         <HeroHeading 
           text={heroData.heading} 
           highlightedWords={heroData.highlightedWords} 

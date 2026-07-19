@@ -1,0 +1,29 @@
+<svg width="600" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Minimal Premium Background -->
+  <rect width="600" height="900" fill="#0A0A0A" rx="20"/>
+  <rect x="10" y="10" width="580" height="880" fill="none" stroke="#2A2A2A" stroke-width="2" rx="10"/>
+  
+  <!-- Subtle Grid -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1A1A1A" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="900" fill="url(#grid)" rx="20"/>
+
+  <!-- Logo Placeholder -->
+  <g transform="translate(300, 250)">
+    <circle cx="0" cy="0" r="80" fill="#ffffff"/>
+    <path d="M-30,-20 L30,-20 L0,30 Z" fill="#0A0A0A"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="300" y="450" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="8">TECHSPACE</text>
+  <text x="300" y="520" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400" fill="#888888" text-anchor="middle" letter-spacing="4">INNOVATION LAB</text>
+  
+  <text x="300" y="750" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" letter-spacing="2">SRM UNIVERSITY SONIPAT</text>
+  
+  <!-- Access Pass Label -->
+  <rect x="150" y="800" width="300" height="50" fill="#ffffff" rx="25"/>
+  <text x="300" y="832" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#000000" text-anchor="middle" letter-spacing="4">ACCESS PASS</text>
+</svg>

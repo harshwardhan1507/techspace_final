@@ -14,7 +14,7 @@ interface HeroButtonsProps {
 
 export function HeroButtons({ primary, secondary }: HeroButtonsProps) {
   return (
-    <div className="mt-8 flex flex-col sm:flex-row items-center gap-4">
+    <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
       <a href={primary.href} aria-label={primary.label}>
         <Button size="lg" className="rounded-full px-8 font-medium">
           {primary.label}
