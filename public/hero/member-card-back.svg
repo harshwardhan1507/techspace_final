@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" width="1000" height="1500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0C0C0F" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1500" fill="url(#bg)" />
+  
+  <text x="500" y="250" font-family="sans-serif" font-weight="900" font-size="72" fill="#F5F5F5" text-anchor="middle" letter-spacing="10">TECHSPACE</text>
+  
+  <text x="500" y="400" font-family="sans-serif" font-weight="bold" font-size="48" fill="#4682B4" text-anchor="middle" letter-spacing="2">Innovation Starts Here</text>
+  
+  <rect x="350" y="600" width="300" height="300" fill="none" stroke="#262A31" stroke-width="8" rx="20" />
+  <text x="500" y="770" font-family="sans-serif" font-weight="bold" font-size="48" fill="#B7BDC8" text-anchor="middle">QR CODE</text>
+  
+  <text x="500" y="1100" font-family="sans-serif" font-weight="500" font-size="36" fill="#7D8795" text-anchor="middle" letter-spacing="2">techspace.srms.edu</text>
+  
+  <line x1="200" y1="1250" x2="800" y2="1250" stroke="#262A31" stroke-width="4" />
+  
+  <text x="500" y="1350" font-family="sans-serif" font-weight="bold" font-size="32" fill="#B7BDC8" text-anchor="middle" letter-spacing="8">JOIN • BUILD • LEAD</text>
+</svg>

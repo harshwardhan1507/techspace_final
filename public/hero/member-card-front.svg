@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" width="1000" height="1500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#131417" />
+      <stop offset="100%" stop-color="#050505" />
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1500" fill="url(#bg)" />
+  
+  <text x="500" y="250" font-family="sans-serif" font-weight="900" font-size="72" fill="#F5F5F5" text-anchor="middle" letter-spacing="10">TECHSPACE</text>
+  
+  <circle cx="500" cy="550" r="150" fill="none" stroke="#262A31" stroke-width="8" />
+  <image href="/hero/techspace-logo.svg" x="380" y="430" width="240" height="240" preserveAspectRatio="xMidYMid meet" />
+  
+  <text x="500" y="900" font-family="sans-serif" font-weight="500" font-size="40" fill="#7D8795" text-anchor="middle" letter-spacing="2">SRM University Sonipat</text>
+  
+  <text x="500" y="1050" font-family="sans-serif" font-weight="bold" font-size="56" fill="#F5F5F5" text-anchor="middle" letter-spacing="4">OFFICIAL MEMBER</text>
+  
+  <line x1="200" y1="1200" x2="800" y2="1200" stroke="#262A31" stroke-width="4" />
+  
+  <text x="500" y="1300" font-family="sans-serif" font-weight="bold" font-size="32" fill="#4682B4" text-anchor="middle" letter-spacing="6">BUILD • INNOVATE • TRANSFORM</text>
+</svg>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BackgroundPaths } from "@/components/ui/shared/background-paths";
 import { HeroContent } from "./components";
+import { HeroLanyard } from "./components/HeroLanyard";
 
 export default function HeroSection() {
   return (
@@ -11,14 +12,14 @@ export default function HeroSection() {
       {/* Content Container */}
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full min-h-svh py-12 flex items-center justify-center">
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 items-center w-full">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-8 lg:gap-12 items-center w-full">
           {/* Left Column */}
           <div className="w-full pointer-events-auto">
             <HeroContent />
           </div>
           {/* Right Column */}
           <div className="w-full min-h-[300px] pointer-events-auto">
-            {/* Reserved for future Hero visual */}
+            <HeroLanyard />
           </div>
         </div>
       </div>
