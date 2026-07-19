@@ -14,6 +14,7 @@ import { mainNav, ctaNav } from "@/data/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useOutsideClick } from "@/hooks/use-outside-click";
+import { Brand } from "@/components/shared/Brand";
 
 import React from "react";
 
@@ -204,10 +205,10 @@ export function Navbar() {
         <NavBody>
           <a
             href="#hero"
-            className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-lg font-bold tracking-tighter text-black dark:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+            className="relative z-20 mr-4 flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
             aria-label="TechSpace Home"
           >
-            TechSpace
+            <Brand size="sm" variant="full" />
           </a>
 
           <ActiveNavItems items={items} />
@@ -228,11 +229,11 @@ export function Navbar() {
             <MobileNavHeader>
               <a
                 href="#hero"
-                className="text-lg font-bold tracking-tighter text-black dark:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-label="TechSpace Home"
               >
-                TechSpace
+                <Brand size="sm" variant="full" />
               </a>
               <MobileNavToggle
                 isOpen={isMobileMenuOpen}

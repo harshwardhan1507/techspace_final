@@ -29,6 +29,24 @@ export const metadata: Metadata = {
   },
   description: "Official website for TechSpace, the student technology community of SRM University Sonipat. We build, learn, and innovate together.",
   keywords: ["TechSpace", "SRM University", "Tech Club", "Student Community", "Sonipat", "Technology"],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/android-chrome-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png" },
+    ],
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://techspace.srmuniversity.ac.in",
+    title: "TechSpace | SRM University Sonipat",
+    description: "Official website for TechSpace, the student technology community of SRM University Sonipat.",
+    siteName: "TechSpace",
+  },
 };
 
 export default function RootLayout({
