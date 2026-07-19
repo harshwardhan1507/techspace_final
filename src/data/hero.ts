@@ -1,12 +1,19 @@
 export const heroData = {
-  title: "Build. Learn. Innovate.",
-  subtitle: "We are TechSpace, the student technology community of SRM University Sonipat.",
-  primaryAction: {
-    label: "Join Us",
+  badge: "SRM University Sonipat",
+  heading: "Innovate. Build. Transform.",
+  highlightedWords: ["Transform."],
+  description: "Join the official technology community of SRM University Sonipat. We are a collective of developers, designers, and innovators building the future of technology.",
+  primaryCTA: {
+    label: "Join TechSpace",
     href: "#join",
   },
-  secondaryAction: {
-    label: "Explore",
-    href: "#what-we-do",
+  secondaryCTA: {
+    label: "Explore Projects",
+    href: "#projects",
   },
+  stats: [
+    { label: "Active Members", value: "200+" },
+    { label: "Projects Built", value: "50+" },
+    { label: "Hackathons Won", value: "15+" },
+  ],
 };
