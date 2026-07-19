@@ -104,15 +104,44 @@ export function Navbar() {
 
   // Focus trap and escape to close
   useEffect(() => {
-    function handleKeyDown(e: KeyboardEvent) {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsMobileMenuOpen(false);
       }
-    }
+    };
     
+    let handleTab: (e: KeyboardEvent) => void;
+
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
       document.addEventListener("keydown", handleKeyDown);
+
+      // Focus trap logic
+      const focusableElements = mobileNavRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      );
+
+      if (focusableElements && focusableElements.length > 0) {
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        handleTab = (e: KeyboardEvent) => {
+          if (e.key === "Tab") {
+            if (e.shiftKey) {
+              if (document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+              }
+            } else {
+              if (document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+              }
+            }
+          }
+        };
+        document.addEventListener("keydown", handleTab);
+      }
     } else {
       document.body.style.overflow = "auto";
     }
@@ -120,6 +149,9 @@ export function Navbar() {
     return () => {
       document.body.style.overflow = "auto";
       document.removeEventListener("keydown", handleKeyDown);
+      if (handleTab) {
+        document.removeEventListener("keydown", handleTab);
+      }
     };
   }, [isMobileMenuOpen]);
 
@@ -149,81 +181,84 @@ export function Navbar() {
   }, [items]);
 
   return (
-    <ResizableNavbarContainer className="fixed top-6 z-50">
-      <NavBody>
-        <a
-          href="#hero"
-          className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-lg font-bold tracking-tighter text-black dark:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
-          aria-label="Home"
-        >
-          TechSpace
-        </a>
-
-        <ActiveNavItems items={items} />
-
-        <div className="flex items-center gap-4 relative z-20">
-          <NavbarButton 
-            variant="primary" 
-            href={ctaNav.href}
-            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+    <nav aria-label="Main Navigation">
+      <ResizableNavbarContainer className="fixed top-6 z-50">
+        <NavBody>
+          <a
+            href="#hero"
+            className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-lg font-bold tracking-tighter text-black dark:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
+            aria-label="TechSpace Home"
           >
-            {ctaNav.title}
-          </NavbarButton>
-        </div>
-      </NavBody>
+            TechSpace
+          </a>
 
-      <div ref={mobileNavRef} className="w-full flex justify-center">
-        <MobileNav>
-          <MobileNavHeader>
-            <a
-              href="#hero"
-              className="text-lg font-bold tracking-tighter text-black dark:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
-              onClick={() => setIsMobileMenuOpen(false)}
+          <ActiveNavItems items={items} />
+
+          <div className="flex items-center gap-4 relative z-20">
+            <NavbarButton 
+              variant="primary" 
+              href={ctaNav.href}
+              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
-              TechSpace
-            </a>
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            />
-          </MobileNavHeader>
+              {ctaNav.title}
+            </NavbarButton>
+          </div>
+        </NavBody>
 
-          <MobileNavMenu
-            isOpen={isMobileMenuOpen}
-            onClose={() => setIsMobileMenuOpen(false)}
-          >
-            {items.map((item, idx) => {
-              const isActive = activeId === item.id;
-              return (
-                <a
-                  key={`mobile-link-${idx}`}
-                  href={item.link}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  aria-current={isActive ? "page" : undefined}
-                  className={cn(
-                    "relative block px-4 py-2 text-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                    isActive
-                      ? "text-black dark:text-white font-semibold bg-black/5 dark:bg-white/10 rounded-md"
-                      : "text-neutral-600 dark:text-neutral-300"
-                  )}
-                >
-                  {item.name}
-                </a>
-              );
-            })}
-            <div className="mt-4 flex w-full flex-col gap-4">
-              <NavbarButton
+        <div ref={mobileNavRef} className="w-full flex justify-center">
+          <MobileNav>
+            <MobileNavHeader>
+              <a
+                href="#hero"
+                className="text-lg font-bold tracking-tighter text-black dark:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
                 onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                href={ctaNav.href}
+                aria-label="TechSpace Home"
               >
-                {ctaNav.title}
-              </NavbarButton>
-            </div>
-          </MobileNavMenu>
-        </MobileNav>
-      </div>
-    </ResizableNavbarContainer>
+                TechSpace
+              </a>
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
+            </MobileNavHeader>
+
+            <MobileNavMenu
+              isOpen={isMobileMenuOpen}
+              onClose={() => setIsMobileMenuOpen(false)}
+            >
+              {items.map((item, idx) => {
+                const isActive = activeId === item.id;
+                return (
+                  <a
+                    key={`mobile-link-${idx}`}
+                    href={item.link}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(
+                      "relative block px-4 py-2 text-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                      isActive
+                        ? "text-black dark:text-white font-semibold bg-black/5 dark:bg-white/10 rounded-md"
+                        : "text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-neutral-100"
+                    )}
+                  >
+                    {item.name}
+                  </a>
+                );
+              })}
+              <div className="mt-4 flex w-full flex-col gap-4">
+                <NavbarButton
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  variant="primary"
+                  className="w-full text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  href={ctaNav.href}
+                >
+                  {ctaNav.title}
+                </NavbarButton>
+              </div>
+            </MobileNavMenu>
+          </MobileNav>
+        </div>
+      </ResizableNavbarContainer>
+    </nav>
   );
 }
