@@ -1,25 +1,25 @@
-import { Hero } from "@/components/sections/Hero";
-import { WhatWeDo } from "@/components/sections/WhatWeDo";
-import { Domains } from "@/components/sections/Domains";
-import { Projects } from "@/components/sections/Projects";
-import { EventsGallery } from "@/components/sections/EventsGallery";
-import { Team } from "@/components/sections/Team";
-import { Journey } from "@/components/sections/Journey";
-import { WhyJoin } from "@/components/sections/WhyJoin";
-import { JoinCTA } from "@/components/sections/JoinCTA";
+import { HeroSection } from "@/components/sections/hero/HeroSection";
+import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
+import { DomainsSection } from "@/components/sections/DomainsSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { EventsSection } from "@/components/sections/EventsSection";
+import { TeamSection } from "@/components/sections/TeamSection";
+import { JourneySection } from "@/components/sections/JourneySection";
+import { WhyJoinSection } from "@/components/sections/WhyJoinSection";
+import { JoinCTASection } from "@/components/sections/JoinCTASection";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Hero />
-      <WhatWeDo />
-      <Domains />
-      <Projects />
-      <EventsGallery />
-      <Team />
-      <Journey />
-      <WhyJoin />
-      <JoinCTA />
+      <HeroSection />
+      <WhatWeDoSection />
+      <DomainsSection />
+      <ProjectsSection />
+      <EventsSection />
+      <TeamSection />
+      <JourneySection />
+      <WhyJoinSection />
+      <JoinCTASection />
     </main>
   );
 }

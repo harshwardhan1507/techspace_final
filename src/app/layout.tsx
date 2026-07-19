@@ -1,22 +1,36 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { FooterSection } from "@/components/sections/FooterSection";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { MotionProvider } from "@/components/providers/MotionProvider";
 
-const geistSans = Geist({
-  variable: "--font-sans",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
-  title: "TechSpace",
-  description: "Official website for TechSpace, the student technology community of SRM University Sonipat.",
+  title: {
+    default: "TechSpace | SRM University Sonipat",
+    template: "%s | TechSpace",
+  },
+  description: "Official website for TechSpace, the student technology community of SRM University Sonipat. We build, learn, and innovate together.",
+  keywords: ["TechSpace", "SRM University", "Tech Club", "Student Community", "Sonipat", "Technology"],
 };
 
 export default function RootLayout({
@@ -27,13 +41,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark`}
+      className={`${geist.variable} ${inter.variable} dark`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+      <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground">
+        <ThemeProvider>
+          <MotionProvider>
+            <Navbar />
+            {children}
+            <FooterSection />
+          </MotionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
