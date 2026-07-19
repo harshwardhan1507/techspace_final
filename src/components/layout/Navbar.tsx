@@ -15,6 +15,24 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 
+import React from "react";
+
+// Wrapper to intercept `visible` prop from vendor Navbar and forward to MobileNav,
+// while safely providing a ref without passing `visible` to a native DOM element.
+const MobileNavContainer = React.forwardRef<
+  HTMLDivElement,
+  { children: React.ReactNode; className?: string; visible?: boolean }
+>(({ children, className, visible }, ref) => (
+  <div ref={ref} className={className}>
+    {React.Children.map(children, (child) =>
+      React.isValidElement(child)
+        ? React.cloneElement(child as React.ReactElement<{ visible?: boolean }>, { visible })
+        : child
+    )}
+  </div>
+));
+MobileNavContainer.displayName = "MobileNavContainer";
+
 // Extends vendor functionality without mutating the vendor component
 // This adds active section highlighting via IntersectionObserver
 function ActiveNavItems({
@@ -205,7 +223,7 @@ export function Navbar() {
           </div>
         </NavBody>
 
-        <div ref={mobileNavRef} className="w-full flex justify-center">
+        <MobileNavContainer ref={mobileNavRef} className="w-full flex justify-center">
           <MobileNav>
             <MobileNavHeader>
               <a
@@ -257,7 +275,7 @@ export function Navbar() {
               </div>
             </MobileNavMenu>
           </MobileNav>
-        </div>
+        </MobileNavContainer>
       </ResizableNavbarContainer>
     </nav>
   );
