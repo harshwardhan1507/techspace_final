@@ -1,8 +1,7 @@
 import HeroSection from "@/components/sections/hero/HeroSection";
 import WhatWeDoSection from "@/components/sections/what-we-do/WhatWeDoSection";
 import DomainsSection from "@/components/sections/domains/DomainsSection";
-import ProjectsSection from "@/components/sections/projects/ProjectsSection";
-import EventsSection from "@/components/sections/events/EventsSection";
+import UpcomingSection from "@/components/sections/upcoming/UpcomingSection";
 import GallerySection from "@/components/sections/gallery/GallerySection";
 import TeamSection from "@/components/sections/team/TeamSection";
 import JourneySection from "@/components/sections/journey/JourneySection";
@@ -18,12 +17,11 @@ export default function Home() {
       <HeroSection />
       <WhatWeDoSection />
       <DomainsSection />
-      <ProjectsSection />
-      <EventsSection />
-      <GallerySection />
-      <TeamSection />
-      <JourneySection />
+      <UpcomingSection />
       <WhyJoinSection />
+      <TeamSection />
+      <GallerySection />
+      <JourneySection />
       <JoinSection />
       <Footer />
     </>
