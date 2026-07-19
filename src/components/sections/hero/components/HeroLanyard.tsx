@@ -22,6 +22,7 @@ export function HeroLanyard() {
       className="relative w-full h-[687.5px] md:h-[825px] lg:h-[962.5px] flex items-center justify-center overflow-visible pointer-events-auto"
     >
       <Lanyard
+        fov={15.4}
         model="/hero/card.glb"
         bandTexture="/hero/lanyard_img.png"
         frontImage="/hero/lanyard_img.png"
