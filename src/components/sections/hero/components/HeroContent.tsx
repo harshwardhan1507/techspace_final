@@ -24,7 +24,7 @@ export function HeroContent() {
       </div>
 
       <div className="w-full">
-        <HeroStats stats={heroData.stats} />
+        <HeroStats />
       </div>
     </div>
   );

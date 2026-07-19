@@ -9,10 +9,12 @@ import JourneySection from "@/components/sections/journey/JourneySection";
 import WhyJoinSection from "@/components/sections/why-join/WhyJoinSection";
 import JoinSection from "@/components/sections/join/JoinSection";
 import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <HeroSection />
       <WhatWeDoSection />
       <DomainsSection />
