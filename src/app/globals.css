@@ -101,6 +101,7 @@
   html {
     @apply antialiased;
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
   }
 
   /* Scrollbar Styling */

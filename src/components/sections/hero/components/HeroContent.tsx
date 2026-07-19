@@ -1,6 +1,5 @@
 import React from "react";
 import { heroData } from "@/data/hero";
-import { HeroBadge } from "./HeroBadge";
 import { HeroHeading } from "./HeroHeading";
 import { HeroDescription } from "./HeroDescription";
 import { HeroButtons } from "./HeroButtons";
@@ -9,10 +8,6 @@ import { HeroStats } from "./HeroStats";
 export function HeroContent() {
   return (
     <div className="flex flex-col items-start w-full max-w-2xl">
-      <div className="mb-6">
-        <HeroBadge text={heroData.badge} />
-      </div>
-      
       <div className="mb-6 flex flex-col items-start gap-4">
         <HeroHeading 
           text={heroData.heading} 

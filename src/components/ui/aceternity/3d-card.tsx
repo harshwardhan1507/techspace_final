@@ -134,6 +134,7 @@ export const CardItem = ({
     handleAnimations();
   }, [isMouseEntered, handleAnimations]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Component = Tag as any;
 
   return (

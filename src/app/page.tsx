@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/layout/Navbar";
 import HeroSection from "@/components/sections/hero/HeroSection";
 import WhatWeDoSection from "@/components/sections/what-we-do/WhatWeDoSection";
 import DomainsSection from "@/components/sections/domains/DomainsSection";
@@ -14,7 +13,6 @@ import Footer from "@/components/layout/Footer";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <HeroSection />
       <WhatWeDoSection />
       <DomainsSection />
