@@ -1,25 +1,31 @@
-import { HeroSection } from "@/components/sections/hero/HeroSection";
-import { WhatWeDoSection } from "@/components/sections/WhatWeDoSection";
-import { DomainsSection } from "@/components/sections/DomainsSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
-import { EventsSection } from "@/components/sections/EventsSection";
-import { TeamSection } from "@/components/sections/TeamSection";
-import { JourneySection } from "@/components/sections/JourneySection";
-import { WhyJoinSection } from "@/components/sections/WhyJoinSection";
-import { JoinCTASection } from "@/components/sections/JoinCTASection";
+import { Navbar } from "@/components/layout/Navbar";
+import HeroSection from "@/components/sections/hero/HeroSection";
+import WhatWeDoSection from "@/components/sections/what-we-do/WhatWeDoSection";
+import DomainsSection from "@/components/sections/domains/DomainsSection";
+import ProjectsSection from "@/components/sections/projects/ProjectsSection";
+import EventsSection from "@/components/sections/events/EventsSection";
+import GallerySection from "@/components/sections/gallery/GallerySection";
+import TeamSection from "@/components/sections/team/TeamSection";
+import JourneySection from "@/components/sections/journey/JourneySection";
+import WhyJoinSection from "@/components/sections/why-join/WhyJoinSection";
+import JoinSection from "@/components/sections/join/JoinSection";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <>
+      <Navbar />
       <HeroSection />
       <WhatWeDoSection />
       <DomainsSection />
       <ProjectsSection />
       <EventsSection />
+      <GallerySection />
       <TeamSection />
       <JourneySection />
       <WhyJoinSection />
-      <JoinCTASection />
-    </main>
+      <JoinSection />
+      <Footer />
+    </>
   );
 }

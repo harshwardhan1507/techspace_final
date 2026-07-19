@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { FooterSection } from "@/components/sections/FooterSection";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 
@@ -47,9 +45,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground">
         <ThemeProvider>
           <MotionProvider>
-            <Navbar />
-            {children}
-            <FooterSection />
+            <main className="flex-1">
+              {children}
+            </main>
           </MotionProvider>
         </ThemeProvider>
       </body>

@@ -18,7 +18,7 @@ export const mainNav: NavItem[] = [
 
 export const ctaNav: NavItem = {
   title: "Join TechSpace",
-  href: "#join-cta"
+  href: "#join"
 };
 
 export const footerNav: NavItem[] = [
