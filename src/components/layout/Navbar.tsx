@@ -9,7 +9,7 @@ import {
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
-} from "@/components/ui/resizable-navbar";
+} from "@/components/ui/aceternity/resizable-navbar";
 import { mainNav, ctaNav } from "@/data/navigation";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
