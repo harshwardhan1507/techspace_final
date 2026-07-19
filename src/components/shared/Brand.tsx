@@ -2,10 +2,6 @@ import React from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-import logoLight from "@/assets/logos/logo-light.svg";
-import logoDark from "@/assets/logos/logo-dark.svg";
-import logoMark from "@/assets/logos/logo-mark.svg";
-
 export interface BrandProps {
   size?: "sm" | "md" | "lg";
   variant?: "logo" | "wordmark" | "full";
@@ -13,18 +9,6 @@ export interface BrandProps {
 }
 
 export function Brand({ size = "md", variant = "full", className }: BrandProps) {
-  const sizeClasses = {
-    sm: "h-6",
-    md: "h-8",
-    lg: "h-12",
-  };
-
-  const heightMap = {
-    sm: 24,
-    md: 32,
-    lg: 48,
-  };
-
   if (variant === "wordmark") {
     return (
       <span
@@ -41,23 +25,14 @@ export function Brand({ size = "md", variant = "full", className }: BrandProps) 
     );
   }
 
-  const lightSrc = variant === "logo" ? logoMark : logoLight;
-  const darkSrc = variant === "logo" ? logoMark : logoDark;
-
   return (
     <div className={cn("flex items-center", className)}>
       <Image
-        src={lightSrc}
+        src="/image.svg"
         alt="TechSpace Logo"
-        height={heightMap[size]}
-        className={cn("w-auto dark:hidden", sizeClasses[size])}
-        priority
-      />
-      <Image
-        src={darkSrc}
-        alt="TechSpace Logo"
-        height={heightMap[size]}
-        className={cn("w-auto hidden dark:block", sizeClasses[size])}
+        width={1095}
+        height={1095}
+        className="w-auto h-8 md:h-9 lg:h-10 object-contain"
         priority
       />
     </div>
