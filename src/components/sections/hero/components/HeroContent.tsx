@@ -8,10 +8,12 @@ import { HeroStats } from "./HeroStats";
 
 export function HeroContent() {
   return (
-    <div className="flex flex-col items-start justify-center w-full max-w-2xl">
-      <HeroBadge text={heroData.badge} />
+    <div className="flex flex-col items-start w-full max-w-2xl">
+      <div className="mb-6">
+        <HeroBadge text={heroData.badge} />
+      </div>
       
-      <div className="mt-8 flex flex-col items-start">
+      <div className="mb-6 flex flex-col items-start gap-4">
         <HeroHeading 
           text={heroData.heading} 
           highlightedWords={heroData.highlightedWords} 
@@ -19,12 +21,16 @@ export function HeroContent() {
         <HeroDescription text={heroData.description} />
       </div>
 
-      <HeroButtons 
-        primary={heroData.primaryCTA} 
-        secondary={heroData.secondaryCTA} 
-      />
+      <div className="mb-12">
+        <HeroButtons 
+          primary={heroData.primaryCTA} 
+          secondary={heroData.secondaryCTA} 
+        />
+      </div>
 
-      <HeroStats stats={heroData.stats} />
+      <div className="w-full">
+        <HeroStats stats={heroData.stats} />
+      </div>
     </div>
   );
 }
