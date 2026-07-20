@@ -10,9 +10,12 @@ import JoinSection from "@/components/sections/join/JoinSection";
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 
+import GitIntro from "@/components/intro/GitIntro";
+
 export default function Home() {
   return (
     <>
+      <GitIntro />
       <Navbar />
       <HeroSection />
       <WhatWeDoSection />
