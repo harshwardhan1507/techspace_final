@@ -9,7 +9,7 @@ export default function DomainsSection() {
     <section 
       id="domains" 
       aria-label="Domains Section"
-      className="relative w-full py-24 md:py-32 lg:py-40 overflow-hidden"
+      className="relative w-full py-24 md:py-32 lg:py-40 mb-16 md:mb-24 overflow-hidden"
     >
       {/* Background - Near-black base with graphite gradient */}
       <div className="absolute inset-0 bg-[#020202]" />

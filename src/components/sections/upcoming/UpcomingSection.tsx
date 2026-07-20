@@ -7,7 +7,7 @@ import { InitiativeCard } from "./components/InitiativeCard";
 
 export default function UpcomingSection() {
   return (
-    <section id="upcoming" aria-label="Upcoming Initiatives" className="relative w-full py-24 md:py-32 overflow-hidden bg-[#020202]">
+    <section id="upcoming" aria-label="Upcoming Initiatives" className="relative w-full py-32 md:py-40 mb-16 md:mb-24 overflow-hidden bg-[#020202]">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500-[0.02] rounded-full blur-[120px]" />
@@ -63,7 +63,7 @@ export default function UpcomingSection() {
         </div>
 
         {/* Asymmetric Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(180px,auto)] gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-[minmax(180px,auto)] gap-8 md:gap-10">
           {initiativesData.map((initiative, index) => {
             // First item is featured (index 0)
             const variant = index === 0 ? "featured" : "standard";

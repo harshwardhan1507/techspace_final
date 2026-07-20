@@ -1,4 +1,4 @@
-import { Brain, Code2, Shield, Smartphone, Rocket, GitBranch, LucideIcon } from "lucide-react";
+import { Code2, Shield, Smartphone, Rocket, GitBranch, Terminal, TreeDeciduous, LucideIcon } from "lucide-react";
 
 export type InitiativeStatus = "Coming Soon" | "Planning" | "Upcoming";
 export type InitiativeDifficulty = "Beginner" | "Intermediate" | "All Levels";
@@ -17,15 +17,15 @@ export interface Initiative {
 
 export const initiativesData: Initiative[] = [
   {
-    id: "ai-workshop",
-    title: "AI Workshop Series",
-    description: "Master the fundamentals of AI, from prompt engineering to understanding large language models.",
+    id: "intro-programming",
+    title: "Introduction to Programming",
+    description: "Start your programming journey by learning the fundamentals of Java, Python, and C++. Understand programming logic, problem solving, variables, loops, functions, and object-oriented concepts through practical hands-on sessions.",
     status: "Coming Soon",
     difficulty: "Beginner",
-    focus: ["Prompt Engineering", "LLMs", "AI Fundamentals"],
-    metadata: ["3 Sessions", "Hands-on", "Certificate"],
-    icon: Brain,
-    color: "#06B6D4", // Electric Cyan
+    focus: ["Java", "Python", "C++", "Programming Basics"],
+    metadata: ["5 Sessions", "Hands-on", "Certificate of Participation"],
+    icon: Terminal,
+    color: "#0EA5E9", // Azure Blue
   },
   {
     id: "web-bootcamp",
@@ -39,15 +39,15 @@ export const initiativesData: Initiative[] = [
     color: "#0EA5E9", // Azure Blue
   },
   {
-    id: "cyber-ctf",
-    title: "Cybersecurity CTF",
-    description: "Test your skills in our upcoming Capture The Flag competition covering web and network security.",
+    id: "git-github-workshop",
+    title: "Git & GitHub Workshop",
+    description: "Learn version control, Git workflows, GitHub collaboration, repositories, branching strategies, pull requests, and how to contribute effectively to team projects.",
     status: "Upcoming",
-    difficulty: "Intermediate",
-    focus: ["Linux", "Networking", "Web Security"],
-    metadata: ["Competition", "Team Event", "Practical"],
-    icon: Shield,
-    color: "#10B981", // Emerald
+    difficulty: "Beginner",
+    focus: ["Git", "GitHub", "Version Control", "Collaboration"],
+    metadata: ["Weekend", "Hands-on", "Project Based"],
+    icon: GitBranch,
+    color: "#8B5CF6", // Purple
   },
   {
     id: "flutter-sprint",
@@ -60,16 +60,17 @@ export const initiativesData: Initiative[] = [
     icon: Smartphone,
     color: "#EC4899", // Pink
   },
+  
   {
-    id: "hackathon-prep",
-    title: "Hackathon Preparation",
-    description: "Get ready for competitive coding with team building exercises and rapid prototyping workshops.",
-    status: "Coming Soon",
-    difficulty: "All Levels",
-    focus: ["Team Building", "Rapid Prototyping", "Pitching"],
-    metadata: ["Weekend", "Team Building", "Pitching"],
-    icon: Rocket,
-    color: "#F59E0B", // Amber
+    id: "dsa-algorithms",
+    title: "Data Structures & Algorithms",
+    description: "Strengthen your problem-solving skills using arrays, linked lists, trees, graphs, recursion, sorting algorithms, and competitive programming concepts.",
+    status: "Planning",
+    difficulty: "Intermediate",
+    focus: ["DSA", "Algorithms", "Java", "Problem Solving"],
+    metadata: ["4 Weeks", "Practice Sessions", "Contest Preparation"],
+    icon: TreeDeciduous,
+    color: "#10B981", // Emerald
   },
   {
     id: "oss-month",
@@ -80,6 +81,6 @@ export const initiativesData: Initiative[] = [
     focus: ["Git", "GitHub", "OSS Contributions"],
     metadata: ["4 Weeks", "Remote", "Mentorship"],
     icon: GitBranch,
-    color: "#8B5CF6", // Purple
+    color: "#6366F1", // Indigo
   }
 ];

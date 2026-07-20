@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Initiative } from "../data";
+import { ProgrammingVisual } from "./ProgrammingVisual";
 
 interface InitiativeCardProps {
   initiative: Initiative;
@@ -51,10 +52,17 @@ export function InitiativeCard({ initiative, index, variant = "standard" }: Init
         style={{ background: initiative.color }}
       />
 
+      {/* Decorative visual for featured card - only on md+ */}
+      {isFeatured && (
+        <div className="hidden md:block">
+          <ProgrammingVisual />
+        </div>
+      )}
+
       <div className={`flex flex-col flex-1 relative z-10 ${isFeatured ? 'p-8 md:p-10 lg:p-12' : 'p-6 md:p-8'}`}>
         
         {/* Header: Icon & Compact Status */}
-        <div className="flex items-start justify-between gap-4 mb-8">
+        <div className="flex items-start justify-between gap-4 mb-10">
           <div 
             className={`rounded-2xl border flex items-center justify-center transition-transform duration-500 group-hover:-rotate-3 group-hover:scale-105 ${isFeatured ? 'w-16 h-16' : 'w-12 h-12'}`}
             style={{ 
@@ -74,7 +82,7 @@ export function InitiativeCard({ initiative, index, variant = "standard" }: Init
 
         {/* Title & Description */}
         <div className="mb-auto">
-          <h3 className={`font-bold tracking-tight text-white mb-4 transition-colors duration-300 ${isFeatured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>
+          <h3 className={`font-bold tracking-tight text-white mb-6 transition-colors duration-300 ${isFeatured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}>
             <span className="relative inline-block">
               {initiative.title}
               <span 
@@ -88,11 +96,11 @@ export function InitiativeCard({ initiative, index, variant = "standard" }: Init
           </p>
         </div>
 
-        <div className="mt-8 md:mt-10">
-          <hr className="border-neutral-800/60 mb-6" />
+        <div className="mt-10 md:mt-12">
+          <hr className="border-neutral-800/60 mb-8" />
           
           {/* Metadata Row */}
-          <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-neutral-400 font-medium">
+          <div className="flex flex-wrap items-center gap-4 mb-8 text-sm text-neutral-400 font-medium">
             {initiative.metadata.map((item, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 {idx > 0 && <span className="text-neutral-700">•</span>}

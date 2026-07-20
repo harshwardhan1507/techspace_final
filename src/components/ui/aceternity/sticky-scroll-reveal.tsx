@@ -7,6 +7,12 @@ import { cn } from "@/lib/utils";
 export const StickyScroll = ({
   content,
   contentClassName,
+  className,
+  containerClassName,
+  leftClassName,
+  fixedHeight = true,
+  internalScroll = true,
+  showBackground = true,
 }: {
   content: {
     title: string;
@@ -14,15 +20,22 @@ export const StickyScroll = ({
     content?: React.ReactNode;
   }[];
   contentClassName?: string;
+  className?: string;
+  containerClassName?: string;
+  leftClassName?: string;
+  fixedHeight?: boolean;
+  internalScroll?: boolean;
+  showBackground?: boolean;
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
-    container: ref,
-    offset: ["start start", "end start"],
-  });
+  
+  const scrollConfig = internalScroll 
+    ? { container: ref, offset: ["start start", "end start"] as any }
+    : { target: ref, offset: ["start center", "end center"] as any };
+    
+  const { scrollYProgress } = useScroll(scrollConfig);
+  
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -56,13 +69,20 @@ export const StickyScroll = ({
   return (
     <motion.div
       animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
+        backgroundColor: showBackground ? backgroundColors[activeCard % backgroundColors.length] : "transparent",
       }}
-      className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10"
+      className={cn(
+        "relative flex justify-center space-x-10",
+        fixedHeight ? "h-[30rem]" : "h-auto",
+        internalScroll ? "overflow-y-auto" : "overflow-visible",
+        showBackground ? "rounded-md p-10" : "",
+        containerClassName,
+        className
+      )}
       ref={ref}
     >
-      <div className="div relative flex items-start px-4">
-        <div className="max-w-2xl">
+      <div className="relative flex items-start px-4 w-full">
+        <div className={cn("max-w-2xl", leftClassName)}>
           {content.map((item, index) => (
             <div key={item.title + index} className="my-20">
               <motion.h2
@@ -83,7 +103,7 @@ export const StickyScroll = ({
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-kg mt-10 max-w-sm text-slate-300"
+                className="text-lg mt-10 max-w-sm text-slate-300"
               >
                 {item.description}
               </motion.p>
@@ -92,14 +112,18 @@ export const StickyScroll = ({
           <div className="h-40" />
         </div>
       </div>
-      <div
-        style={{ background: backgroundGradient }}
-        className={cn(
-          "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md bg-white lg:block",
-          contentClassName,
-        )}
-      >
-        {content[activeCard].content ?? null}
+      {/* Right Column Wrapper - Stretches to full flex container height */}
+      <div className="hidden lg:block w-full max-w-[500px]">
+        <div
+          style={{ background: showBackground ? backgroundGradient : undefined }}
+          className={cn(
+            "sticky top-10",
+            showBackground ? "h-60 w-80 rounded-md bg-white overflow-hidden" : "",
+            contentClassName
+          )}
+        >
+          {content[activeCard].content ?? null}
+        </div>
       </div>
     </motion.div>
   );

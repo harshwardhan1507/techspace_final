@@ -2,7 +2,7 @@ import HeroSection from "@/components/sections/hero/HeroSection";
 import WhatWeDoSection from "@/components/sections/what-we-do/WhatWeDoSection";
 import DomainsSection from "@/components/sections/domains/DomainsSection";
 import UpcomingSection from "@/components/sections/upcoming/UpcomingSection";
-import GallerySection from "@/components/sections/gallery/GallerySection";
+import EventsGallerySection from "@/components/sections/events-gallery/EventsGallerySection";
 import TeamSection from "@/components/sections/team/TeamSection";
 import JourneySection from "@/components/sections/journey/JourneySection";
 import WhyJoinSection from "@/components/sections/why-join/WhyJoinSection";
@@ -20,7 +20,7 @@ export default function Home() {
       <UpcomingSection />
       <WhyJoinSection />
       <TeamSection />
-      <GallerySection />
+      <EventsGallerySection />
       <JourneySection />
       <JoinSection />
       <Footer />
