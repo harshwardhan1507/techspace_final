@@ -131,7 +131,9 @@ const StylishCarousel = ({
     autoPlayRef.current = setInterval(() => {
       setActiveIndex((prev) => {
         const next = prev + 1 >= items.length ? 0 : prev + 1;
-        onIndexChange?.(next);
+        setTimeout(() => {
+          onIndexChange?.(next);
+        }, 0);
         return next;
       });
     }, autoPlay);

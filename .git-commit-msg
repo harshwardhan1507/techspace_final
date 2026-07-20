@@ -1,0 +1,8 @@
+feat(homepage): implement editorial landing page sections
+
+- Implemented comprehensive `Events & Gallery` section with `StylishCarousel` for upcoming events and a custom native CSS masonry grid for community moments.
+- Overhauled `Join` CTA section to feature an interactive globe and progressive narrative text.
+- Re-architected `Why Join` sticky scroll to rely on native page scroll instead of an internal container.
+- Added `Events` to main navigation schema for full top-to-bottom continuity.
+- Consolidated configurations into modular `data.ts` layers to prepare for future CMS integration.
+- Finalized spacing and UI alignment across all homepage components for a premium aesthetic.
