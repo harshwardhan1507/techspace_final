@@ -29,11 +29,11 @@ export const StickyScroll = ({
 }) => {
   const [activeCard, setActiveCard] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  
-  const scrollConfig = internalScroll 
+
+  const scrollConfig = internalScroll
     ? { container: ref, offset: ["start start", "end start"] as any }
     : { target: ref, offset: ["start center", "end center"] as any };
-    
+
   const { scrollYProgress } = useScroll(scrollConfig);
   const cardLength = content.length;
 
@@ -56,15 +56,15 @@ export const StickyScroll = ({
     <div
       ref={ref}
       className={cn(
-        "relative flex justify-between items-start w-full gap-12 lg:gap-16",
+        "relative flex justify-between items-stretch w-full gap-12 lg:gap-16",
         containerClassName,
         className
       )}
     >
-      {/* Left Column: Natural Height Content Steps */}
-      <div className={cn("w-full max-w-2xl flex-1 space-y-24 md:space-y-36 py-4", leftClassName)}>
+      {/* Left Column: Height-Driving Content Steps */}
+      <div className={cn("w-full max-w-2xl flex-1 flex flex-col justify-between py-4", leftClassName)}>
         {content.map((item, index) => (
-          <div key={item.title + index} className="pt-2 pb-12">
+          <div key={item.title + index} className="min-h-[60vh] flex flex-col justify-center my-12">
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{
@@ -88,10 +88,12 @@ export const StickyScroll = ({
             </motion.p>
           </div>
         ))}
+        {/* Bottom padding buffer for sticky release timing */}
+        <div className="h-48" />
       </div>
 
-      {/* Right Column: Sticky Presentation Panel */}
-      <div className="hidden lg:block w-full max-w-[500px] shrink-0">
+      {/* Right Column: Full-Height Stretched Sticky Presentation Panel */}
+      <div className="hidden lg:block w-full max-w-[500px] shrink-0 self-stretch relative">
         <div className={cn("sticky top-32 lg:top-36 w-full", contentClassName)}>
           <AnimatePresence mode="wait">
             <motion.div
