@@ -31,7 +31,7 @@ export function HeroHeading({ text, highlightedWords = [] }: HeroHeadingProps) {
   };
 
   return (
-    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white max-w-4xl text-left leading-tight">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-neutral-950 dark:text-white max-w-4xl text-left leading-[1.15]">
       {renderText()}
     </h1>
   );

@@ -19,7 +19,7 @@ export function HeroLanyard() {
         ease: [0.16, 1, 0.3, 1], // Custom ease-out
         delay: 0.2
       }}
-      className="relative w-full h-[687.5px] md:h-[825px] lg:h-[962.5px] flex items-center justify-center overflow-visible pointer-events-auto"
+      className="relative w-full h-[420px] sm:h-[550px] md:h-[825px] lg:h-[962.5px] flex items-center justify-center overflow-visible pointer-events-auto"
     >
       <Lanyard
         fov={15.4}
