@@ -44,36 +44,44 @@ export function ExpandableTeamCards({ members }: { members: TeamMember[] }) {
       </AnimatePresence>
       <AnimatePresence>
         {active && typeof active === "object" ? (
-          <div className="fixed inset-0 grid place-items-center z-[110] p-4 md:p-8">
-            <motion.button
-              key={`button-${active.id}-${id}`}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-4 right-4 items-center justify-center bg-neutral-800 rounded-full h-8 w-8 hover:bg-neutral-700 transition-colors z-[120]"
-              onClick={() => setActive(null)}
-            >
-              <CloseIcon />
-            </motion.button>
+          <div className="fixed inset-0 flex items-end sm:items-center justify-center z-[110] p-0 sm:p-4 md:p-8">
             <motion.div
               layoutId={`card-${active.id}-${id}`}
               ref={ref}
-              className="w-full max-w-2xl h-full md:h-fit md:max-h-[90%] flex flex-col bg-[#050505] border border-white/10 md:rounded-2xl overflow-hidden shadow-2xl relative"
+              className="w-full max-w-full sm:max-w-2xl max-h-[85vh] sm:max-h-[90vh] flex flex-col bg-[#08080C] border-t sm:border border-white/15 rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative"
             >
-              <div className="flex flex-col md:flex-row h-full">
+              {/* Close Button */}
+              <motion.button
+                key={`button-${active.id}-${id}`}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0.05 } }}
+                className="absolute top-4 right-4 items-center justify-center bg-neutral-900/90 border border-white/20 rounded-full h-9 w-9 flex hover:bg-neutral-800 transition-colors z-[130] shadow-lg"
+                onClick={() => setActive(null)}
+                aria-label="Close details"
+              >
+                <CloseIcon />
+              </motion.button>
+
+              {/* Mobile Drag Handle Bar */}
+              <div className="sm:hidden flex justify-center pt-2.5 pb-1 flex-shrink-0">
+                <div className="w-12 h-1.5 rounded-full bg-white/20" />
+              </div>
+
+              <div className="flex flex-col md:flex-row flex-1 overflow-y-auto">
                 {/* Left/Top side: Image */}
                 <motion.div 
                   layoutId={`image-${active.id}-${id}`}
-                  className="w-full md:w-2/5 h-64 md:h-auto shrink-0 relative overflow-hidden bg-neutral-900"
+                  className="w-full md:w-2/5 h-44 sm:h-56 md:h-auto shrink-0 relative overflow-hidden bg-neutral-900"
                 >
                   <img
                     src={active.image}
                     alt={active.name}
                     className="w-full h-full object-cover object-center"
                   />
-                  {/* Subtle gradient overlay to blend image nicely */}
-                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#050505] to-transparent pointer-events-none" />
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#08080C] via-transparent to-transparent pointer-events-none" />
                 </motion.div>
 
                 {/* Right/Bottom side: Content */}
@@ -151,13 +159,13 @@ export function ExpandableTeamCards({ members }: { members: TeamMember[] }) {
         ) : null}
       </AnimatePresence>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
         {members.map((member) => (
           <motion.li
             layoutId={`card-${member.id}-${id}`}
             key={member.id}
             onClick={() => setActive(member)}
-            className="group relative flex flex-col bg-[#050505] border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-[#4682B4]/50 transition-colors duration-300"
+            className="group relative flex flex-col bg-[#050505] border border-white/10 rounded-2xl overflow-hidden cursor-pointer hover:border-[#4682B4]/50 transition-colors duration-300 min-h-[340px]"
           >
             <motion.div 
               layoutId={`image-${member.id}-${id}`}

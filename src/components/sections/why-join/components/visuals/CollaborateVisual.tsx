@@ -103,15 +103,18 @@ export function CollaborateVisual() {
       >
         {Array.from({ length: 14 }).map((_, i) => (
           <div key={i} className="flex flex-col gap-1">
-            {Array.from({ length: 3 }).map((_, j) => (
-              <div
-                key={j}
-                className="w-2 h-2 rounded-[2px]"
-                style={{
-                  backgroundColor: Math.random() > 0.6 ? 'rgba(56, 189, 248, 0.4)' : 'rgba(255, 255, 255, 0.05)'
-                }}
-              />
-            ))}
+            {Array.from({ length: 3 }).map((_, j) => {
+              const isActive = (i * 7 + j * 3) % 5 < 2;
+              return (
+                <div
+                  key={j}
+                  className="w-2 h-2 rounded-[2px]"
+                  style={{
+                    backgroundColor: isActive ? 'rgba(56, 189, 248, 0.4)' : 'rgba(255, 255, 255, 0.05)'
+                  }}
+                />
+              );
+            })}
           </div>
         ))}
       </motion.div>
