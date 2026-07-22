@@ -83,7 +83,7 @@ export default function RootLayout({
         <ThemeProvider>
           <MotionProvider>
             <JoinModalProvider>
-              <main className="flex-1">
+              <main className="flex-1 overflow-x-clip">
                 {children}
               </main>
               <JoinCommunityModal />
