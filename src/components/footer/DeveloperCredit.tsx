@@ -150,8 +150,8 @@ export function DeveloperCredit() {
           Designed & Developed by
         </span>
         <AvatarLabelGroup
-          size="sm"
-          src="/team/harsh.jpg"
+          size="md"
+          src="/team/harsh_avatar.jpg"
           alt="Harsh Wardhan"
           title="Harsh Wardhan"
           subtitle="Website Developer"

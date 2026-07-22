@@ -16,7 +16,7 @@ export interface AvatarLabelGroupProps {
 }
 
 export function AvatarLabelGroup({
-  size = "sm",
+  size = "md",
   src,
   alt,
   title,
@@ -27,17 +27,17 @@ export function AvatarLabelGroup({
 }: AvatarLabelGroupProps) {
   const sizeMap = {
     sm: {
-      avatar: "w-7 h-7",
-      avatarSize: 28,
+      avatar: "w-8 h-8",
+      avatarSize: 32,
       title: "text-xs font-semibold text-neutral-200 group-hover:text-white",
       subtitle: "text-[10px] text-neutral-400",
       gap: "gap-2.5",
     },
     md: {
-      avatar: "w-9 h-9",
-      avatarSize: 36,
-      title: "text-sm font-semibold text-neutral-100 group-hover:text-white",
-      subtitle: "text-xs text-neutral-400",
+      avatar: "w-9.5 h-9.5",
+      avatarSize: 38,
+      title: "text-xs sm:text-sm font-semibold text-neutral-100 group-hover:text-white",
+      subtitle: "text-[10px] sm:text-xs text-neutral-400",
       gap: "gap-3",
     },
     lg: {
@@ -56,7 +56,7 @@ export function AvatarLabelGroup({
       type="button"
       onClick={onClick}
       className={cn(
-        "group inline-flex items-center text-left focus:outline-none transition-all duration-300 rounded-full py-1 px-1.5 hover:-translate-y-0.5 active:scale-[0.98]",
+        "group inline-flex items-center text-left focus:outline-none transition-all duration-300 rounded-full py-1 px-1.5 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer",
         currentSize.gap,
         isOpen && "bg-white/5",
         className
