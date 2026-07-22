@@ -14,43 +14,102 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+import { JoinModalProvider } from "@/components/join/hooks/useJoinModal";
+import { JoinCommunityModal } from "@/components/join/JoinCommunityModal";
+import { JsonLd } from "@/components/seo/JsonLd";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://techspace.srmuniversity.ac.in";
+
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#020202",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "TechSpace | SRM University Sonipat",
+    default: "TechSpace — Student Developer Community at SRM University",
     template: "%s | TechSpace",
   },
-  description: "Official website for TechSpace, the student technology community of SRM University Sonipat. We build, learn, and innovate together.",
-  keywords: ["TechSpace", "SRM University", "Tech Club", "Student Community", "Sonipat", "Technology"],
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "32x32" },
-      { url: "/android-chrome-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png" },
-    ],
+  description:
+    "TechSpace is the flagship student developer community and technical club at SRM University Delhi-NCR, Sonipat. Join us to learn Web Development, AI/ML, Cybersecurity, Mobile Dev, and participate in hackathons & workshops.",
+  keywords: [
+    "TechSpace",
+    "TechSpace SRM",
+    "SRM University Delhi-NCR",
+    "SRM Sonipat Coding Club",
+    "Student Developer Community",
+    "AI Workshops",
+    "Programming Club",
+    "Cybersecurity Club",
+    "Web Development",
+    "Hackathons",
+    "TechSpace Community",
+    "Software Engineering Club"
+  ],
+  authors: [
+    { name: "TechSpace Team", url: SITE_URL },
+    { name: "Harsh Wardhan", url: "https://harshwardhanportfolio.vercel.app/" }
+  ],
+  creator: "TechSpace Community",
+  publisher: "SRM University Delhi-NCR, Sonipat",
+  applicationName: "TechSpace",
+  category: "Technology & Education",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   openGraph: {
     type: "website",
-    locale: "en_IN",
-    url: "https://techspace.srmuniversity.ac.in",
-    title: "TechSpace | SRM University Sonipat",
-    description: "Official website for TechSpace, the student technology community of SRM University Sonipat.",
+    locale: "en_US",
+    url: SITE_URL,
+    title: "TechSpace — Student Developer Community at SRM University",
+    description:
+      "TechSpace is the flagship student technology community at SRM University Delhi-NCR, Sonipat. Discover workshops, hackathons, open-source projects, and technical domains.",
     siteName: "TechSpace",
+    images: [
+      {
+        url: "/techspace.png",
+        width: 1200,
+        height: 630,
+        alt: "TechSpace — Student Developer Community at SRM University",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TechSpace — Student Developer Community at SRM University",
+    description:
+      "TechSpace is the flagship student technology community at SRM University Delhi-NCR, Sonipat. Discover workshops, hackathons, and developer events.",
+    images: ["/techspace.png"],
+    creator: "@techspacesrm",
+    site: "@techspacesrm",
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/techspace.png", type: "image/png" }
+    ],
+    apple: [
+      { url: "/techspace.png" }
+    ],
+  },
+  verification: {
+    google: "nablWOI5D9ymyYASK94_msyDn4WBr5hc41DH4vwts8w",
   },
 };
-
-import { JoinModalProvider } from "@/components/join/hooks/useJoinModal";
-import { JoinCommunityModal } from "@/components/join/JoinCommunityModal";
 
 export default function RootLayout({
   children,
@@ -78,6 +137,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <JsonLd />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground">
         <ThemeProvider>
