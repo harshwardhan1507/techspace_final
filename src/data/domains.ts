@@ -11,63 +11,63 @@ export interface Domain {
 
 export const domainsData: Domain[] = [
   {
-    id: "web-development",
-    title: "Web Development",
-    description: "Build modern, responsive, and scalable web applications using cutting-edge frameworks and technologies.",
+    id: "programming",
+    title: "Programming & Logic",
+    description: "Master software engineering fundamentals, algorithm design, data structures, and problem-solving through clean, efficient code.",
     icon: "Code2",
-    technologies: ["React", "Next.js", "Node.js", "TypeScript", "Full Stack"],
-    specialization: "Frontend • Backend • Full Stack",
+    technologies: ["C++", "Java", "Python", "Algorithms", "OOP"],
+    specialization: "Logic • Algorithms • Software Engineering",
     size: "large",
     accentColor: "#0EA5E9", // Azure Blue
   },
   {
+    id: "web-development",
+    title: "Web Development",
+    description: "Design and deploy modern, responsive web applications from wireframe layouts to full-stack cloud deployments.",
+    icon: "Layout",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind", "Node.js"],
+    specialization: "Frontend • Backend • Full Stack",
+    size: "large",
+    accentColor: "#2563EB", // Royal Blue
+  },
+  {
     id: "artificial-intelligence",
     title: "Artificial Intelligence",
-    description: "Explore machine learning, large language models, computer vision, and generative AI systems.",
-    icon: "Brain",
-    technologies: ["Machine Learning", "LLMs", "Computer Vision", "Generative AI"],
-    specialization: "ML • LLMs • Vision",
-    size: "large",
+    description: "Train machine learning models, build neural networks, explore computer vision, and deploy generative AI pipelines.",
+    icon: "BrainCircuit",
+    technologies: ["PyTorch", "TensorFlow", "LLMs", "Computer Vision"],
+    specialization: "ML • Neural Nets • Vision",
+    size: "medium",
     accentColor: "#06B6D4", // Electric Cyan
   },
   {
     id: "cybersecurity",
     title: "Cybersecurity",
-    description: "Master ethical hacking, network security, CTFs, and defensive security practices.",
+    description: "Analyze network traffic, secure cloud infrastructure, conduct ethical penetration testing, and master defensive protocols.",
     icon: "Shield",
-    technologies: ["Ethical Hacking", "Network Security", "CTFs", "OWASP"],
+    technologies: ["Network Security", "Ethical Hacking", "OWASP", "CTFs"],
     specialization: "Red Team • Blue Team • CTFs",
     size: "medium",
-    accentColor: "#10B981", // Emerald
+    accentColor: "#10B981", // Emerald Green
   },
   {
     id: "open-source",
     title: "Open Source",
-    description: "Contribute to impactful community projects, documentation, and the global OSS ecosystem.",
+    description: "Collaborate on production repositories, master Git branching workflows, write technical docs, and contribute to global OSS.",
     icon: "GitBranch",
-    technologies: ["GitHub", "Community Projects", "Documentation", "OSS Contributions"],
-    specialization: "Contributions • Collaboration",
+    technologies: ["Git", "GitHub", "Pull Requests", "OSS Ecosystem"],
+    specialization: "Workflows • Community • Pull Requests",
     size: "medium",
     accentColor: "#8B5CF6", // Purple
   },
   {
-    id: "competitive-programming",
-    title: "Competitive Programming",
-    description: "Strengthen problem-solving skills and algorithmic thinking through coding competitions.",
-    icon: "Trophy",
-    technologies: ["DSA", "ICPC", "Codeforces", "LeetCode"],
-    specialization: "",
-    size: "small",
-    accentColor: "#F59E0B", // Amber
-  },
-  {
     id: "mobile-development",
     title: "Mobile Development",
-    description: "Create intuitive mobile experiences for Android, iOS, and cross-platform applications.",
+    description: "Build cross-platform mobile apps for iOS and Android using Flutter and React Native with native device integrations.",
     icon: "Smartphone",
-    technologies: ["Flutter", "Android", "Cross Platform", "Firebase"],
-    specialization: "Native • Cross Platform",
-    size: "small",
+    technologies: ["Flutter", "React Native", "Android", "iOS", "Firebase"],
+    specialization: "Cross-Platform • Native UI",
+    size: "medium",
     accentColor: "#EC4899", // Pink
   },
 ];
