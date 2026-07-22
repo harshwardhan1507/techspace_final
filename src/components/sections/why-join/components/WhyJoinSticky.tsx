@@ -25,7 +25,7 @@ export function WhyJoinSticky() {
           showBackground={false}
           className="w-full flex justify-between gap-16 xl:gap-24"
           leftClassName="max-w-none w-full flex-1"
-          contentClassName="w-full h-[500px] sticky top-32 flex items-center justify-center bg-transparent"
+          contentClassName="w-full min-h-[440px] flex items-center justify-center bg-transparent"
         />
       </div>
 

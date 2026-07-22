@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { useMotionValueEvent, useScroll } from "motion/react";
-import { motion } from "motion/react";
+
+import React, { useRef, useState } from "react";
+import { useMotionValueEvent, useScroll, motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export const StickyScroll = ({
@@ -10,9 +10,9 @@ export const StickyScroll = ({
   className,
   containerClassName,
   leftClassName,
-  fixedHeight = true,
-  internalScroll = true,
-  showBackground = true,
+  fixedHeight = false,
+  internalScroll = false,
+  showBackground = false,
 }: {
   content: {
     title: string;
@@ -27,15 +27,14 @@ export const StickyScroll = ({
   internalScroll?: boolean;
   showBackground?: boolean;
 }) => {
-  const [activeCard, setActiveCard] = React.useState(0);
+  const [activeCard, setActiveCard] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-
-  const scrollConfig = internalScroll
+  
+  const scrollConfig = internalScroll 
     ? { container: ref, offset: ["start start", "end start"] as any }
-    : { target: ref, offset: ["start center", "end center"] as any };
-
+    : { target: ref, offset: ["start 40%", "end 60%"] as any };
+    
   const { scrollYProgress } = useScroll(scrollConfig);
-
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -53,78 +52,59 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  const backgroundColors = [
-    "#0f172a", // slate-900
-    "#000000", // black
-    "#171717", // neutral-900
-  ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
-    "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
-    "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
-  ];
-
-  const backgroundGradient = linearGradients[activeCard % linearGradients.length];
-
   return (
-    <motion.div
-      animate={{
-        backgroundColor: showBackground ? backgroundColors[activeCard % backgroundColors.length] : "transparent",
-      }}
-      className={cn(
-        "relative flex justify-center space-x-10",
-        fixedHeight ? "h-[30rem]" : "h-auto",
-        internalScroll ? "overflow-y-auto" : "overflow-visible",
-        showBackground ? "rounded-md p-10" : "",
-        containerClassName,
-        className
-      )}
+    <div
       ref={ref}
+      className={cn("relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 w-full items-stretch", className)}
     >
-      <div className="relative flex items-start px-4 w-full">
-        <div className={cn("max-w-2xl", leftClassName)}>
-          {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-2xl font-bold text-slate-100"
+      {/* Left Column: Journey Steps (Drives Grid Height) */}
+      <div className={cn("lg:col-span-7 flex flex-col justify-between py-12", leftClassName)}>
+        {content.map((item, index) => (
+          <div key={item.title + index} className="min-h-[50vh] flex flex-col justify-center py-12">
+            <motion.h2
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: activeCard === index ? 1 : 0.25,
+                scale: activeCard === index ? 1 : 0.98,
+              }}
+              transition={{ duration: 0.3 }}
+              className="text-2xl md:text-4xl font-bold tracking-tight text-white"
+            >
+              {item.title}
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: activeCard === index ? 1 : 0.25,
+              }}
+              transition={{ duration: 0.3 }}
+              className="text-base md:text-lg mt-4 max-w-lg text-neutral-300 leading-relaxed"
+            >
+              {item.description}
+            </motion.p>
+          </div>
+        ))}
+      </div>
+
+      {/* Right Column: Vertically Centered Sticky Visual Track */}
+      <div className="hidden lg:block lg:col-span-5 relative w-full h-full">
+        <div className="sticky top-1/2 -translate-y-1/2 w-full pt-12 pb-12">
+          <div className={cn("w-full flex items-center justify-center", contentClassName)}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeCard}
+                initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -15 }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full"
               >
-                {item.title}
-              </motion.h2>
-              <motion.p
-                initial={{
-                  opacity: 0,
-                }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
-                }}
-                className="text-lg mt-10 max-w-sm text-slate-300"
-              >
-                {item.description}
-              </motion.p>
-            </div>
-          ))}
-          <div className="h-40" />
+                {content[activeCard].content ?? null}
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </div>
-      {/* Right Column Wrapper - Stretches to full flex container height */}
-      <div className="hidden lg:block w-full max-w-[500px]">
-        <div
-          style={{ background: showBackground ? backgroundGradient : undefined }}
-          className={cn(
-            "sticky top-10",
-            showBackground ? "h-60 w-80 rounded-md bg-white overflow-hidden" : "",
-            contentClassName
-          )}
-        >
-          {content[activeCard].content ?? null}
-        </div>
-      </div>
-    </motion.div>
+    </div>
   );
 };
