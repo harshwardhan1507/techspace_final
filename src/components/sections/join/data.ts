@@ -11,13 +11,5 @@ export const joinCtaConfig = {
     label: "See Upcoming Events",
     href: "#events",
   },
-  pillars: [
-    { label: "💻 Programming" },
-    { label: "🤖 Artificial Intelligence" },
-    { label: "🛡️ Cybersecurity" },
-    { label: "🌐 Open Source" },
-    { label: "📱 Mobile Development" },
-    { label: "🚀 Innovation" },
-  ],
   closingLine: "TechSpace isn't just a club—it's a place to learn, build, and grow together."
 };

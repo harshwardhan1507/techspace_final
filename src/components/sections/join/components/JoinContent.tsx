@@ -25,20 +25,8 @@ export function JoinContent() {
         </Link>
       </div>
 
-      {/* Identity Badges */}
-      <div className="flex flex-wrap gap-2.5 max-w-xl">
-        {joinCtaConfig.pillars.map((pillar) => (
-          <div 
-            key={pillar.label}
-            className="px-4 py-2 rounded-full border border-[#262A31] bg-[#0C0C0F] text-sm text-[#B7BDC8] font-medium tracking-wide"
-          >
-            {pillar.label}
-          </div>
-        ))}
-      </div>
-
       {/* Closing Line */}
-      <div className="pt-4 max-w-lg">
+      <div className="pt-2 max-w-lg">
         <p className="text-sm sm:text-base font-semibold text-[#F5F5F5] opacity-90">
           "{joinCtaConfig.closingLine}"
         </p>
