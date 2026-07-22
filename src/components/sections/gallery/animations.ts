@@ -1,4 +1,6 @@
-export const stageVariants = {
+import { Variants } from "framer-motion";
+
+export const stageVariants: Variants = {
   initial: { opacity: 0, scale: 1.05, x: 20 },
   animate: { 
     opacity: 1, 
@@ -14,7 +16,7 @@ export const stageVariants = {
   }
 };
 
-export const overlayStagger = {
+export const overlayStagger: Variants = {
   animate: {
     transition: {
       staggerChildren: 0.1,
@@ -23,7 +25,7 @@ export const overlayStagger = {
   }
 };
 
-export const overlayItem = {
+export const overlayItem: Variants = {
   initial: { opacity: 0, y: 15 },
   animate: { 
     opacity: 1, 

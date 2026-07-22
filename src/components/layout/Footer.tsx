@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { Brand } from "@/components/shared/Brand";
 import { mainNav } from "@/data/navigation";
-import { MessageCircle, Instagram, Heart } from "lucide-react";
+import { MessageCircle, Heart } from "lucide-react";
 import { useJoinModal } from "@/components/join/hooks/useJoinModal";
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
