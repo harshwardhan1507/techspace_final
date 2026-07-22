@@ -2,17 +2,21 @@
 
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// 
+// -----------------------------------------------------------------------------
 // Types
-// 
+// -----------------------------------------------------------------------------
 
 export interface StylishCarouselItem {
   src: string;
   title?: string;
   alt?: string;
+  category?: string;
+  date?: string;
+  description?: string;
+  galleryLink?: string;
 }
 
 export interface StylishCarouselProps {
@@ -44,7 +48,7 @@ export interface StylishCarouselProps {
   className?: string;
   /** Callback fired when the active index changes */
   onIndexChange?: (index: number) => void;
-  /** Border radius of each slide image. Defaults to "1rem" */
+  /** Border radius of each slide image. Defaults to "1.25rem" */
   borderRadius?: string;
   /** Custom dot active color (Tailwind or CSS color) */
   dotActiveColor?: string;
@@ -54,17 +58,17 @@ export interface StylishCarouselProps {
   arrowClassName?: string;
 }
 
-// 
+// -----------------------------------------------------------------------------
 // Component
-// 
+// -----------------------------------------------------------------------------
 
 const StylishCarousel = ({
   items = [],
   initialIndex = 0,
-  slideSize = "clamp(140px, 75vmin, 320px)",
-  rotationDegrees = 28,
-  inactiveScale = 0.62,
-  yOffsetPercent = 48,
+  slideSize = "clamp(260px, 40vw, 440px)",
+  rotationDegrees = 24,
+  inactiveScale = 0.65,
+  yOffsetPercent = 40,
   springBounce = 0.15,
   springDuration = 0.8,
   showArrows = true,
@@ -73,7 +77,7 @@ const StylishCarousel = ({
   autoPlay = 0,
   className,
   onIndexChange,
-  borderRadius = "1rem",
+  borderRadius = "1.25rem",
   arrowClassName,
 }: StylishCarouselProps) => {
   const clampedInitial = Math.max(0, Math.min(initialIndex, items.length - 1));
@@ -81,7 +85,7 @@ const StylishCarousel = ({
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  //  helpers 
+  // -- helpers ----------------------------------------------------------------
   const goTo = useCallback(
     (index: number) => {
       const clamped = Math.max(0, Math.min(index, items.length - 1));
@@ -101,7 +105,7 @@ const StylishCarousel = ({
     [activeIndex, goTo]
   );
 
-  //  keyboard navigation 
+  // -- keyboard navigation ----------------------------------------------------
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") toPrev();
@@ -111,7 +115,7 @@ const StylishCarousel = ({
     return () => window.removeEventListener("keydown", handler);
   }, [toPrev, toNext]);
 
-  //  touch / swipe 
+  // -- touch / swipe ----------------------------------------------------------
   const touchStartX = useRef<number | null>(null);
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -125,7 +129,7 @@ const StylishCarousel = ({
     touchStartX.current = null;
   };
 
-  //  auto-play 
+  // -- auto-play --------------------------------------------------------------
   useEffect(() => {
     if (!autoPlay) return;
     autoPlayRef.current = setInterval(() => {
@@ -142,7 +146,7 @@ const StylishCarousel = ({
     };
   }, [autoPlay, items.length, onIndexChange]);
 
-  //  spring transition 
+  // -- spring transition ------------------------------------------------------
   const spring = {
     type: "spring" as const,
     bounce: springBounce,
@@ -151,19 +155,24 @@ const StylishCarousel = ({
 
   if (!items.length) return null;
 
+  const activeItem = items[activeIndex];
+  const hasMetadata = Boolean(
+    activeItem?.category || activeItem?.description || activeItem?.date || activeItem?.galleryLink
+  );
+
   return (
     <div
       ref={containerRef}
-      className={cn("relative flex flex-col items-center select-none", className)}
+      className={cn("relative flex flex-col items-center select-none w-full", className)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       aria-label="Stylish Carousel"
       role="region"
     >
-      {/*  SLIDES CONTAINER  */}
+      {/* ---------------- SLIDES CONTAINER ---------------- */}
       <div
-        style={{ width: slideSize, aspectRatio: "1 / 1" }}
-        className="relative mt-6"
+        style={{ width: slideSize, aspectRatio: "16 / 10" }}
+        className="relative mt-2 md:mt-4"
       >
         {/* Horizontal sliding strip */}
         <motion.div
@@ -178,7 +187,7 @@ const StylishCarousel = ({
             return (
               <motion.div
                 key={i}
-                style={{ width: slideSize, aspectRatio: "1 / 1" }}
+                style={{ width: slideSize, aspectRatio: "16 / 10" }}
                 className="flex-shrink-0 flex flex-col items-center gap-2 will-change-transform"
                 animate={{
                   rotate: offset * rotationDegrees,
@@ -187,9 +196,9 @@ const StylishCarousel = ({
                 }}
                 transition={spring}
               >
-                {/* Title label */}
+                {/* Fallback title label for carousels without rich metadata */}
                 <AnimatePresence>
-                  {item.title && (
+                  {item.title && !hasMetadata && (
                     <motion.span
                       key={`title-${i}`}
                       initial={{ opacity: 0, y: -4 }}
@@ -202,9 +211,9 @@ const StylishCarousel = ({
                   )}
                 </AnimatePresence>
 
-                {/* Image */}
+                {/* Image Card */}
                 <div
-                  className="relative w-full h-full overflow-hidden shadow-2xl"
+                  className="relative w-full h-full overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] group border border-white/10 backdrop-blur-md"
                   style={{ borderRadius }}
                 >
                   <img
@@ -213,7 +222,7 @@ const StylishCarousel = ({
                     draggable={false}
                     onClick={() => clickToNavigate && goTo(i)}
                     className={cn(
-                      "w-full h-full object-cover transition-[filter] duration-300 will-change-transform",
+                      "w-full h-full object-cover transition-all duration-500 will-change-transform group-hover:scale-105",
                       !isActive && "brightness-75",
                       clickToNavigate && !isActive && "cursor-pointer"
                     )}
@@ -226,7 +235,7 @@ const StylishCarousel = ({
                       layoutId="glow-ring"
                       className="absolute inset-0 rounded-[inherit] pointer-events-none"
                       style={{
-                        boxShadow: "0 0 0 3px hsl(var(--primary, 221 83% 53%) / 0.7)",
+                        boxShadow: "0 0 0 2px hsl(var(--primary, 221 83% 53%) / 0.8), 0 0 25px hsl(var(--primary, 221 83% 53%) / 0.3)",
                         borderRadius,
                       }}
                       transition={spring}
@@ -239,8 +248,90 @@ const StylishCarousel = ({
         </motion.div>
       </div>
 
-      {/*  CONTROLS  */}
-      <div className="mt-8 flex items-center gap-4 px-3 py-2 rounded-full bg-background/60 border border-border/60 backdrop-blur-md shadow-lg">
+      {/* ---------------- ACTIVE METADATA BLOCK ---------------- */}
+      {hasMetadata && activeItem && (
+        <div className="min-h-[170px] sm:min-h-[190px] flex flex-col items-center justify-start mt-6 z-10 w-full px-4">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`metadata-${activeIndex}`}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="flex flex-col items-center text-center max-w-xl"
+            >
+              {/* Category badge scale animation */}
+              {activeItem.category && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: 0.05 }}
+                  className="inline-flex items-center px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase bg-sky-500/10 border border-sky-500/30 text-sky-400 mb-2 backdrop-blur-md shadow-sm"
+                >
+                  {activeItem.category}
+                </motion.span>
+              )}
+
+              {/* Title fade-up animation */}
+              {activeItem.title && (
+                <motion.h3
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.1 }}
+                  className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight"
+                >
+                  {activeItem.title}
+                </motion.h3>
+              )}
+
+              {/* Date fade-in animation */}
+              {activeItem.date && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.35, delay: 0.15 }}
+                  className="mt-1 text-xs sm:text-sm font-medium text-neutral-400"
+                >
+                  {activeItem.date}
+                </motion.p>
+              )}
+
+              {/* Description fade-up animation */}
+              {activeItem.description && (
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.2 }}
+                  className="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed max-w-lg line-clamp-3"
+                >
+                  {activeItem.description}
+                </motion.p>
+              )}
+
+              {/* CTA button slide-up animation */}
+              {activeItem.galleryLink && (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.35, delay: 0.25 }}
+                  className="mt-3.5"
+                >
+                  <a
+                    href={activeItem.galleryLink}
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs sm:text-sm font-semibold transition-all duration-300 backdrop-blur-md shadow-lg group"
+                  >
+                    <span>View Gallery</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                </motion.div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      )}
+
+      {/* ---------------- CONTROLS ---------------- */}
+      <div className="mt-4 flex items-center gap-4 px-3 py-2 rounded-full bg-background/60 border border-border/60 backdrop-blur-md shadow-lg z-10">
         {/* Prev */}
         {showArrows && (
           <button
@@ -293,7 +384,7 @@ const StylishCarousel = ({
       </div>
 
       {/* Counter */}
-      <p className="mt-3 text-xs text-muted-foreground font-medium tabular-nums">
+      <p className="mt-2.5 text-xs text-muted-foreground font-medium tabular-nums z-10">
         {activeIndex + 1} / {items.length}
       </p>
     </div>

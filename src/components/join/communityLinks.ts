@@ -22,7 +22,7 @@ export const communityLinks: Record<string, PlatformConfig> = {
       "Collaboration opportunities"
     ],
     buttonText: "Join WhatsApp",
-    url: "https://chat.whatsapp.com/invite_placeholder",
+    url: "https://chat.whatsapp.com/B6VOoPe6MEZ69aj554H9W4?s=sw&p=a&ilr=0",
     accentColor: "#25D366",
   },
   instagram: {
@@ -37,7 +37,7 @@ export const communityLinks: Record<string, PlatformConfig> = {
       "Club updates"
     ],
     buttonText: "Follow Instagram",
-    url: "https://instagram.com/techspace_srm",
+    url: "https://www.instagram.com/techspace_srmuh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     accentColor: "#E1306C",
   },
 };
