@@ -32,7 +32,7 @@ export const StickyScroll = ({
   
   const scrollConfig = internalScroll 
     ? { container: ref, offset: ["start start", "end start"] as any }
-    : { target: ref, offset: ["start 40%", "end 60%"] as any };
+    : { target: ref, offset: ["start center", "end center"] as any };
     
   const { scrollYProgress } = useScroll(scrollConfig);
   const cardLength = content.length;
@@ -88,7 +88,7 @@ export const StickyScroll = ({
 
       {/* Right Column: Vertically Centered Sticky Visual Track */}
       <div className="hidden lg:block lg:col-span-5 relative w-full h-full">
-        <div className="sticky top-1/2 -translate-y-1/2 w-full pt-12 pb-12">
+        <div className="sticky top-28 lg:top-36 w-full py-6">
           <div className={cn("w-full flex items-center justify-center", contentClassName)}>
             <AnimatePresence mode="wait">
               <motion.div
