@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import Image from "next/image";
 import { AvatarLabelGroup } from "@/components/ui/AvatarLabelGroup";
-import { ExternalLink, Globe } from "lucide-react";
+import { Globe, ArrowUpRight, Heart } from "lucide-react";
 
 const LinkedInIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -21,9 +22,42 @@ const GitHubIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const developerLinks = {
-  portfolio: "https://harshwardhan.dev",
-  linkedin: "https://linkedin.com/in/harshwardhan1507",
+  portfolio: "https://harshwardhanportfolio.vercel.app/",
+  linkedin: "https://linkedin.com/in/harsh-wardhan-singh-cse",
   github: "https://github.com/harshwardhan1507",
+};
+
+export const techStack = ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"];
+
+// Framer Motion Animation Variants
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 8, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.2,
+      ease: [0.16, 1, 0.3, 1],
+      staggerChildren: 0.045,
+      delayChildren: 0.02,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 8,
+    scale: 0.96,
+    transition: { duration: 0.15, ease: [0.4, 0, 1, 1] },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 8 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.25, ease: [0, 0, 0.2, 1] },
+  },
 };
 
 export function DeveloperCredit() {
@@ -60,86 +94,167 @@ export function DeveloperCredit() {
 
   return (
     <div ref={containerRef} className="relative inline-flex flex-col items-center sm:items-end">
-      {/* Floating Glass Popover */}
+      {/* Floating Apple-Inspired Developer Profile Popover */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 8, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.96 }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute bottom-full mb-3 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 w-[310px] sm:w-[350px] p-5 sm:p-6 rounded-2xl bg-[#0A0A0F]/95 border border-white/15 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.85)] z-50 text-left"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="absolute bottom-full mb-3.5 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 w-[320px] sm:w-[370px] p-5 sm:p-6 rounded-2xl bg-[#0A0A0F]/96 border border-white/15 backdrop-blur-2xl shadow-[0_25px_60px_rgba(0,0,0,0.9)] z-50 text-left overflow-hidden select-none"
             role="dialog"
-            aria-label="Developer Profile Details"
+            aria-label="Harsh Wardhan Developer Profile"
           >
-            {/* Header Greeting */}
-            <div className="flex items-center gap-2">
-              <span className="text-xl">👋</span>
-              <div>
-                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
+            {/* Ambient Background Glow */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-sky-500/10 rounded-full blur-[80px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-[60px] pointer-events-none" />
+
+            {/* Profile Header */}
+            <motion.div variants={itemVariants} className="flex items-center gap-4">
+              <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-white/20 shadow-md flex-shrink-0 group">
+                <Image
+                  src="/team/harsh_avatar.jpg"
+                  alt="Harsh Wardhan"
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 rounded-full ring-2 ring-sky-400/40 pointer-events-none animate-pulse" />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug">
                   Hi, I'm Harsh Wardhan
                 </h3>
-                <p className="text-xs font-medium text-sky-400">
-                  Full-Stack Developer • Coordinator @ TechSpace
+                <p className="text-xs font-semibold text-sky-400 mt-0.5">
+                  Full-Stack Developer
+                </p>
+                <p className="text-[11px] font-mono text-neutral-400">
+                  Member • TechSpace
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Translucent Divider */}
-            <div className="h-px bg-white/10 my-3.5" />
+            {/* Status Badge */}
+            <motion.div variants={itemVariants} className="mt-3">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-[11px] font-medium shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Building meaningful developer experiences</span>
+              </div>
+            </motion.div>
+
+            {/* Subtle Translucent Divider */}
+            <motion.div variants={itemVariants} className="h-px bg-white/10 my-4" />
 
             {/* Description */}
-            <p className="text-xs text-neutral-300 leading-relaxed">
-              Thanks for visiting TechSpace! I designed and developed this website using Next.js, TypeScript, Tailwind CSS, and Framer Motion. Feel free to connect with me.
-            </p>
+            <motion.p variants={itemVariants} className="text-xs text-neutral-300 leading-relaxed max-w-sm">
+              Thanks for checking out TechSpace! I designed and developed this website with a focus on performance, accessibility, and smooth user experiences.
+            </motion.p>
 
-            {/* Social Action Links */}
-            <div className="mt-4 flex flex-col gap-2">
-              {/* Portfolio */}
-              <a
-                href={developerLinks.portfolio}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-xs font-semibold text-neutral-200 hover:text-white transition-all duration-200 cursor-pointer"
-              >
-                <div className="flex items-center gap-2.5">
-                  <Globe className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
-                  <span>Portfolio</span>
-                </div>
-                <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
+            {/* Tech Stack Chips */}
+            <motion.div variants={itemVariants} className="mt-3.5 flex flex-wrap gap-1.5">
+              {techStack.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-2.5 py-1 rounded-md text-[11px] font-mono font-medium bg-white/5 border border-white/10 text-neutral-300 hover:text-white hover:border-white/25 transition-colors"
+                >
+                  {tech}
+                </span>
+              ))}
+            </motion.div>
 
-              {/* LinkedIn */}
-              <a
-                href={developerLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-xs font-semibold text-neutral-200 hover:text-white transition-all duration-200 cursor-pointer"
-              >
-                <div className="flex items-center gap-2.5">
-                  <LinkedInIcon className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
-                  <span>LinkedIn</span>
-                </div>
-                <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
+            {/* Social Action Heading */}
+            <motion.div variants={itemVariants} className="mt-5">
+              <h4 className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2.5">
+                Find me here
+              </h4>
 
-              {/* GitHub */}
-              <a
-                href={developerLinks.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-xs font-semibold text-neutral-200 hover:text-white transition-all duration-200 cursor-pointer"
-              >
-                <div className="flex items-center gap-2.5">
-                  <GitHubIcon className="w-4 h-4 text-neutral-300 group-hover:scale-110 transition-transform" />
-                  <span>GitHub</span>
-                </div>
-                <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </a>
-            </div>
+              {/* 3 Action Cards */}
+              <div className="flex flex-col gap-2">
+                {/* Portfolio Card */}
+                <motion.a
+                  variants={itemVariants}
+                  href={developerLinks.portfolio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/25 transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-400 group-hover:scale-110 transition-transform">
+                      <Globe className="w-4 h-4" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="text-xs font-bold text-neutral-100 group-hover:text-white leading-tight">
+                        Portfolio
+                      </span>
+                      <span className="text-[10px] font-medium text-neutral-400">
+                        Explore my projects
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </motion.a>
+
+                {/* LinkedIn Card */}
+                <motion.a
+                  variants={itemVariants}
+                  href={developerLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/25 transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-blue-500/10 border border-blue-500/20 text-blue-400 group-hover:scale-110 transition-transform">
+                      <LinkedInIcon className="w-4 h-4" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="text-xs font-bold text-neutral-100 group-hover:text-white leading-tight">
+                        LinkedIn
+                      </span>
+                      <span className="text-[10px] font-medium text-neutral-400">
+                        Let's connect professionally
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </motion.a>
+
+                {/* GitHub Card */}
+                <motion.a
+                  variants={itemVariants}
+                  href={developerLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/25 transition-all duration-200 hover:-translate-y-0.5 shadow-sm"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-neutral-500/10 border border-neutral-500/20 text-neutral-200 group-hover:scale-110 transition-transform">
+                      <GitHubIcon className="w-4 h-4" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="text-xs font-bold text-neutral-100 group-hover:text-white leading-tight">
+                        GitHub
+                      </span>
+                      <span className="text-[10px] font-medium text-neutral-400">
+                        Open source & personal projects
+                      </span>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                </motion.a>
+              </div>
+            </motion.div>
+
+            {/* Footer Note */}
+            <motion.div variants={itemVariants} className="mt-4 pt-3 border-t border-white/10 text-center">
+              <p className="text-[11px] font-mono text-neutral-400 flex items-center justify-center gap-1">
+                <span>Built with passion, curiosity, and lots of coffee</span>
+                <Heart className="w-3 h-3 text-red-500 fill-red-500 inline" />
+              </p>
+            </motion.div>
 
             {/* Glass Arrow Pointing Down */}
-            <div className="absolute -bottom-1.5 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-6 w-3 h-3 rotate-45 bg-[#0A0A0F] border-r border-b border-white/15" />
+            <div className="absolute -bottom-1.5 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-7 w-3.5 h-3.5 rotate-45 bg-[#0A0A0F] border-r border-b border-white/15" />
           </motion.div>
         )}
       </AnimatePresence>
