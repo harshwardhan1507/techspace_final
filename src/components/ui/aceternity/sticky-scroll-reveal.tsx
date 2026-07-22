@@ -55,12 +55,18 @@ export const StickyScroll = ({
   return (
     <div
       ref={ref}
-      className={cn("relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 w-full items-stretch", className)}
+      className={cn("relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 w-full items-start", className)}
     >
-      {/* Left Column: Journey Steps (Drives Grid Height) */}
-      <div className={cn("lg:col-span-7 flex flex-col justify-between py-12", leftClassName)}>
+      {/* Left Column: Journey Steps (Aligned to top at y = 0) */}
+      <div className={cn("lg:col-span-7 flex flex-col justify-start space-y-24 md:space-y-36 py-4", leftClassName)}>
         {content.map((item, index) => (
-          <div key={item.title + index} className="min-h-[50vh] flex flex-col justify-center py-12">
+          <div 
+            key={item.title + index} 
+            className={cn(
+              "flex flex-col justify-start",
+              index === 0 ? "pt-2 pb-12" : "py-12"
+            )}
+          >
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{
@@ -86,9 +92,9 @@ export const StickyScroll = ({
         ))}
       </div>
 
-      {/* Right Column: Vertically Centered Sticky Visual Track */}
+      {/* Right Column: Sticky Visual Track (Shares Same Grid Row, Aligned to top at y = 0) */}
       <div className="hidden lg:block lg:col-span-5 relative w-full h-full">
-        <div className="sticky top-28 lg:top-36 w-full py-6">
+        <div className="sticky top-28 lg:top-36 w-full">
           <div className={cn("w-full flex items-center justify-center", contentClassName)}>
             <AnimatePresence mode="wait">
               <motion.div
