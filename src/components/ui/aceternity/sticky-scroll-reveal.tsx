@@ -55,18 +55,16 @@ export const StickyScroll = ({
   return (
     <div
       ref={ref}
-      className={cn("relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 w-full items-start", className)}
+      className={cn(
+        "relative flex justify-between items-start w-full gap-12 lg:gap-16",
+        containerClassName,
+        className
+      )}
     >
-      {/* Left Column: Journey Steps (Aligned to top at y = 0) */}
-      <div className={cn("lg:col-span-7 flex flex-col justify-start space-y-24 md:space-y-36 py-4", leftClassName)}>
+      {/* Left Column: Natural Height Content Steps */}
+      <div className={cn("w-full max-w-2xl flex-1 space-y-24 md:space-y-36 py-4", leftClassName)}>
         {content.map((item, index) => (
-          <div 
-            key={item.title + index} 
-            className={cn(
-              "flex flex-col justify-start",
-              index === 0 ? "pt-2 pb-12" : "py-12"
-            )}
-          >
+          <div key={item.title + index} className="pt-2 pb-12">
             <motion.h2
               initial={{ opacity: 0 }}
               animate={{
@@ -92,23 +90,21 @@ export const StickyScroll = ({
         ))}
       </div>
 
-      {/* Right Column: Sticky Visual Track (Shares Same Grid Row, Aligned to top at y = 0) */}
-      <div className="hidden lg:block lg:col-span-5 relative w-full h-full">
-        <div className="sticky top-28 lg:top-36 w-full">
-          <div className={cn("w-full flex items-center justify-center", contentClassName)}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeCard}
-                initial={{ opacity: 0, scale: 0.95, y: 15 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -15 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full"
-              >
-                {content[activeCard].content ?? null}
-              </motion.div>
-            </AnimatePresence>
-          </div>
+      {/* Right Column: Sticky Presentation Panel */}
+      <div className="hidden lg:block w-full max-w-[500px] shrink-0">
+        <div className={cn("sticky top-32 lg:top-36 w-full", contentClassName)}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeCard}
+              initial={{ opacity: 0, scale: 0.95, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: -15 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full"
+            >
+              {content[activeCard].content ?? null}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </div>
