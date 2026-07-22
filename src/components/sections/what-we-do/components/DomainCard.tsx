@@ -58,13 +58,15 @@ export function DomainCard({ domain, index }: DomainCardProps) {
         </p>
         
         <div className="mt-6 pt-6 border-t border-neutral-200/50 dark:border-neutral-800/50">
-          <motion.span
-            className="inline-flex items-center text-sm font-medium text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-300 transition-colors duration-300"
-            whileHover={{ x: 4 }}
+          <a
+            href={`https://www.google.com/search?q=${encodeURIComponent(domain.title + " definition technology")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors duration-300 group/link"
           >
-            Learn More
+            <span>Learn More</span>
             <svg 
-              className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" 
+              className="w-4 h-4 ml-1.5 transform group-hover/link:translate-x-1 transition-transform duration-300" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
@@ -73,10 +75,10 @@ export function DomainCard({ domain, index }: DomainCardProps) {
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
                 strokeWidth={2} 
-                d="M9 5l7 7-7 7" 
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
               />
             </svg>
-          </motion.span>
+          </a>
         </div>
       </SpotlightCard>
     </motion.div>

@@ -86,15 +86,30 @@ export function DomainTile({ domain, index }: DomainTileProps) {
             {domain.description}
           </p>
           
-          <div className="flex flex-wrap gap-2 mb-4 md:mb-5">
-            {domain.technologies.slice(0, 4).map((tech, techIndex) => (
-              <TechChip key={tech} technology={tech} index={techIndex} accentColor={accentColor} />
-            ))}
-            {domain.technologies.length > 4 && (
-              <span className="px-2 py-1 text-xs font-medium text-neutral-400 bg-neutral-800/50 rounded-full border border-neutral-700/50">
-                +{domain.technologies.length - 4}
-              </span>
-            )}
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-4 md:mb-5">
+            <div className="flex flex-wrap gap-2">
+              {domain.technologies.slice(0, 4).map((tech, techIndex) => (
+                <TechChip key={tech} technology={tech} index={techIndex} accentColor={accentColor} />
+              ))}
+              {domain.technologies.length > 4 && (
+                <span className="px-2 py-1 text-xs font-medium text-neutral-400 bg-neutral-800/50 rounded-full border border-neutral-700/50">
+                  +{domain.technologies.length - 4}
+                </span>
+              )}
+            </div>
+
+            <a
+              href={`https://www.google.com/search?q=${encodeURIComponent(domain.title + " definition technology")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-xs font-semibold text-neutral-400 hover:text-sky-400 transition-colors duration-200 group/link"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <span>Learn More</span>
+              <svg className="w-3.5 h-3.5 ml-1 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
         </div>
       </CardSurface>
