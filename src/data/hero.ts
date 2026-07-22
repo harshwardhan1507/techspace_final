@@ -8,8 +8,8 @@ export const heroData = {
     href: "#join",
   },
   secondaryCTA: {
-    label: "Explore Projects",
-    href: "#projects",
+    label: "Explore Domains",
+    href: "#domains",
   },
   stats: [
     { label: "Members", value: "200+" },
