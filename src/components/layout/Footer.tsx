@@ -6,6 +6,7 @@ import { Brand } from "@/components/shared/Brand";
 import { mainNav } from "@/data/navigation";
 import { MessageCircle, Heart } from "lucide-react";
 import { useJoinModal } from "@/components/join/hooks/useJoinModal";
+import { DeveloperCredit } from "@/components/footer/DeveloperCredit";
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -70,7 +71,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 pt-1">
               <button
                 onClick={openJoinModal}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 text-xs font-medium min-h-[44px] transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 hover:bg-emerald-500/20 text-xs font-medium min-h-[44px] transition-colors cursor-pointer"
                 aria-label="WhatsApp Community"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -78,7 +79,7 @@ export default function Footer() {
               </button>
               <button
                 onClick={openJoinModal}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 hover:bg-pink-500/20 text-xs font-medium min-h-[44px] transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 hover:bg-pink-500/20 text-xs font-medium min-h-[44px] transition-colors cursor-pointer"
                 aria-label="Instagram Profile"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -89,16 +90,18 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Copyright Row */}
+        {/* Bottom Copyright & Developer Credit Row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500">
-          <div className="flex items-center gap-1">
-            <span>Built with</span>
-            <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />
-            <span>by TechSpace Community • SRM University Sonipat</span>
+          <div className="flex items-center gap-1.5 text-center sm:text-left">
+            <span>© {new Date().getFullYear()} TechSpace • SRM University</span>
+            <span className="hidden md:inline">•</span>
+            <span className="hidden md:inline-flex items-center gap-1">
+              Built with <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500 inline" />
+            </span>
           </div>
-          <div>
-            © {new Date().getFullYear()} TechSpace. All rights reserved.
-          </div>
+
+          {/* Interactive Developer Easter Egg */}
+          <DeveloperCredit />
         </div>
       </div>
     </footer>
