@@ -1,19 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { MemoryStage } from "./components/MemoryStage";
 import { MemoryRail } from "./components/MemoryRail";
+import { EventStoryExperience } from "./components/EventStoryExperience";
 import { useMemoryStage } from "./hooks/useMemoryStage";
 import { useAutoRotate } from "./hooks/useAutoRotate";
 import { layout } from "@/design/tokens/layout";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { Memory } from "./data/memories";
 
 import { useJoinModal } from "@/components/join/hooks/useJoinModal";
 
 export default function GallerySection() {
   const { openJoinModal } = useJoinModal();
+  const [activeStory, setActiveStory] = useState<Memory | null>(null);
+
   const {
     activeIndex,
     activeMemory,
@@ -26,7 +30,7 @@ export default function GallerySection() {
 
   const { containerRef } = useAutoRotate({
     nextMemory,
-    isHovered,
+    isHovered: isHovered || activeStory !== null,
     intervalMs: 5500,
   });
 
@@ -42,8 +46,8 @@ export default function GallerySection() {
       }}
     >
       {/* Target Anchors for Navbar Links */}
-      <span id="events" className="absolute -top-24 pointer-events-none" />
       <span id="gallery-anchor" className="absolute -top-24 pointer-events-none" />
+      
       {/* Subtle Background Lighting */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-blue-500/[0.03] rounded-full blur-[140px]" />
@@ -78,6 +82,7 @@ export default function GallerySection() {
               totalMemories={totalMemories}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              onOpenStory={(memory) => setActiveStory(memory)}
             />
           </div>
 
@@ -88,6 +93,7 @@ export default function GallerySection() {
               onSelect={selectMemory}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              onOpenStory={(memory) => setActiveStory(memory)}
             />
           </div>
         </div>
@@ -111,13 +117,20 @@ export default function GallerySection() {
 
           <button
             onClick={openJoinModal}
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-all duration-300 shadow-xl group mt-2"
+            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-all duration-300 shadow-xl group mt-2 cursor-pointer"
           >
             <span>Explore All Community Events</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </motion.div>
       </div>
+
+      {/* Standalone Event Story Experience Overlay (Lazy Mounted) */}
+      <EventStoryExperience
+        memory={activeStory}
+        isOpen={activeStory !== null}
+        onClose={() => setActiveStory(null)}
+      />
     </section>
   );
 }

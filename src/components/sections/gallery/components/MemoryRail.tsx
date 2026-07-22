@@ -9,6 +9,7 @@ interface MemoryRailProps {
   onSelect: (index: number) => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  onOpenStory?: (memory: Memory) => void;
 }
 
 export function MemoryRail({
@@ -16,6 +17,7 @@ export function MemoryRail({
   onSelect,
   onMouseEnter,
   onMouseLeave,
+  onOpenStory,
 }: MemoryRailProps) {
   return (
     <div
@@ -31,14 +33,17 @@ export function MemoryRail({
           return (
             <motion.div
               key={memory.id}
-              onClick={() => onSelect(index)}
+              onClick={() => {
+                onSelect(index);
+                onOpenStory?.(memory);
+              }}
               onMouseEnter={() => onSelect(index)}
               initial={false}
               animate={{
                 opacity: isActive ? 1 : 0.45,
                 x: isActive ? 4 : 0,
               }}
-              whileHover={{ opacity: isActive ? 1 : 0.75, x: 2 }}
+              whileHover={{ opacity: isActive ? 1 : 0.85, x: 3 }}
               className="relative p-3.5 rounded-xl cursor-pointer transition-all duration-300 group border border-transparent hover:border-white/10 bg-neutral-900/30 hover:bg-neutral-900/60 backdrop-blur-sm"
             >
               {/* Active Accent Bar */}
@@ -86,8 +91,11 @@ export function MemoryRail({
           return (
             <button
               key={memory.id}
-              onClick={() => onSelect(index)}
-              className={`snap-start flex-shrink-0 px-4 py-2.5 rounded-xl border text-left transition-all duration-300 min-w-[200px] ${
+              onClick={() => {
+                onSelect(index);
+                onOpenStory?.(memory);
+              }}
+              className={`snap-start flex-shrink-0 px-4 py-2.5 rounded-xl border text-left transition-all duration-300 min-w-[200px] cursor-pointer ${
                 isActive
                   ? 'bg-neutral-900 border-white/20 text-white shadow-lg'
                   : 'bg-neutral-950/60 border-neutral-800 text-neutral-400'

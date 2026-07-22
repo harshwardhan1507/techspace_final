@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Users, Calendar, Quote } from "lucide-react";
+import { MapPin, Users, Calendar, Quote, Sparkles } from "lucide-react";
 import { Memory } from "../data/memories";
 import { MemoryProgress } from "./MemoryProgress";
 import { overlayStagger, overlayItem } from "../animations";
@@ -19,7 +19,15 @@ export function MemoryOverlay({
   totalMemories,
 }: MemoryOverlayProps) {
   return (
-    <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-10 pointer-events-none">
+    <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 md:p-10 pointer-events-none">
+      {/* Top Right Story Indicator Pill */}
+      <div className="flex justify-end pt-2 pr-2">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[11px] font-mono font-semibold text-neutral-200 group-hover:border-white/30 group-hover:text-white transition-all shadow-lg">
+          <Sparkles className="w-3.5 h-3.5" style={{ color: memory.accentColor }} />
+          <span>Click to explore event story</span>
+        </div>
+      </div>
+
       {/* Background Gradient & Vignette */}
       <div 
         className="absolute inset-0 pointer-events-none"

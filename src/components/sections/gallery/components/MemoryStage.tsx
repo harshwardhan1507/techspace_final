@@ -12,6 +12,7 @@ interface MemoryStageProps {
   totalMemories: number;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
+  onOpenStory?: (memory: Memory) => void;
 }
 
 export function MemoryStage({
@@ -20,12 +21,14 @@ export function MemoryStage({
   totalMemories,
   onMouseEnter,
   onMouseLeave,
+  onOpenStory,
 }: MemoryStageProps) {
   return (
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="relative w-full h-[480px] md:h-[580px] lg:h-[640px] rounded-2xl overflow-hidden border border-white/10 bg-[#020202] shadow-2xl group"
+      onClick={() => onOpenStory?.(memory)}
+      className="relative w-full h-[480px] md:h-[580px] lg:h-[640px] rounded-2xl overflow-hidden border border-white/10 bg-[#020202] shadow-2xl group cursor-pointer"
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -62,7 +65,7 @@ export function MemoryStage({
           />
 
           {/* Soft Glass Highlight Edge */}
-          <div className="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none" />
+          <div className="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none group-hover:border-white/20 transition-colors" />
 
           {/* Editorial Overlay */}
           <MemoryOverlay
