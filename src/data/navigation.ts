@@ -12,7 +12,7 @@ export const mainNav: NavItem[] = [
   { title: "Upcoming", href: "#upcoming" },
   { title: "Why Join", href: "#why-join" },
   { title: "Team", href: "#team" },
-  { title: "Events", href: "#events" },
+  { title: "Gallery", href: "#gallery" },
   { title: "Journey", href: "#journey" },
 ];
 
