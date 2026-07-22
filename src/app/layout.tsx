@@ -49,6 +49,9 @@ export const metadata: Metadata = {
   },
 };
 
+import { JoinModalProvider } from "@/components/join/hooks/useJoinModal";
+import { JoinCommunityModal } from "@/components/join/JoinCommunityModal";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -79,9 +82,12 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground">
         <ThemeProvider>
           <MotionProvider>
-            <main className="flex-1">
-              {children}
-            </main>
+            <JoinModalProvider>
+              <main className="flex-1">
+                {children}
+              </main>
+              <JoinCommunityModal />
+            </JoinModalProvider>
           </MotionProvider>
         </ThemeProvider>
       </body>

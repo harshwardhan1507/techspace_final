@@ -1,21 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/shadcn/button";
 import { cn } from "@/lib/utils";
 import { joinCtaConfig } from "../data";
+import { useJoinModal } from "@/components/join/hooks/useJoinModal";
 
 export function JoinContent() {
+  const { openJoinModal } = useJoinModal();
+
   return (
     <div className="flex flex-col space-y-10 mt-10">
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 items-start">
-        <Link 
-          href={joinCtaConfig.primary.href} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className={cn(buttonVariants({ size: "lg" }), "bg-[#4169E1] hover:bg-[#4169E1]/90 text-white font-medium px-8 h-12 rounded-md")}
+        <button 
+          onClick={openJoinModal} 
+          className={cn(buttonVariants({ size: "lg" }), "bg-[#4169E1] hover:bg-[#4169E1]/90 text-white font-medium px-8 h-12 rounded-md shadow-xl transition-all duration-300")}
         >
           {joinCtaConfig.primary.label}
-        </Link>
+        </button>
         
         <Link 
           href={joinCtaConfig.secondary.href}
