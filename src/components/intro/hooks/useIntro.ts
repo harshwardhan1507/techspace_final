@@ -12,7 +12,13 @@ export type IntroPhase =
   | "done";
 
 export function useIntro() {
-  const [phase, setPhase] = useState<IntroPhase>("pending");
+  const [phase, setPhase] = useState<IntroPhase>(() => {
+    if (typeof window !== "undefined") {
+      const hasSeen = sessionStorage.getItem("techspace-intro-seen");
+      if (hasSeen === "true") return "done";
+    }
+    return "pending";
+  });
 
   const skipIntro = useCallback(() => {
     setPhase("done");
@@ -23,28 +29,24 @@ export function useIntro() {
 
   // Initialization & SSR safe check
   useEffect(() => {
-    const hasSeen = sessionStorage.getItem("techspace-intro-seen");
-    if (hasSeen === "true") {
-      setPhase("done");
+    if (phase !== "pending") return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    
+    if (prefersReducedMotion) {
+      // Reduced motion: skip animation, jump to static state briefly, then done
+      queueMicrotask(() => setPhase("idle"));
+      const timer = setTimeout(() => {
+        skipIntro();
+      }, 1000);
+      return () => clearTimeout(timer);
     } else {
-      // Check reduced motion
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-      
-      if (prefersReducedMotion) {
-        // Reduced motion: skip animation, jump to static state briefly, then done
-        setPhase("idle");
-        const timer = setTimeout(() => {
-          skipIntro();
-        }, 1000);
-        return () => clearTimeout(timer);
-      } else {
-        // Start normal animation
-        setPhase("idle");
-      }
+      // Start normal animation asynchronously to avoid cascading renders
+      queueMicrotask(() => setPhase("idle"));
     }
-  }, [skipIntro]);
+  }, [phase, skipIntro]);
 
   // Phase Machine Timers
   useEffect(() => {

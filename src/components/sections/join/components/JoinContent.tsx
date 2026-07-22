@@ -31,7 +31,7 @@ export function JoinContent() {
       {/* Closing Line */}
       <div className="pt-2 max-w-lg">
         <p className="text-sm sm:text-base font-semibold text-[#F5F5F5] opacity-90">
-          "{joinCtaConfig.closingLine}"
+          &quot;{joinCtaConfig.closingLine}&quot;
         </p>
       </div>
     </div>

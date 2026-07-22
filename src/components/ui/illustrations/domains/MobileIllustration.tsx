@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Smartphone, AppWindow, Layers, CheckCircle2 } from "lucide-react";
+import { AppWindow, CheckCircle2 } from "lucide-react";
 import { GlowLayer } from "../base/GlowLayer";
 import { IllustrationProps } from "@/config/registry/illustrations";
 

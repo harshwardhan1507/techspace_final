@@ -13,9 +13,8 @@ export function BootLog({ phase }: BootLogProps) {
   const [easterEgg, setEasterEgg] = useState<string | null>(null);
 
   useEffect(() => {
-    // Pick a subtle random easter egg on mount
     const randomCmd = easterEggCommands[Math.floor(Math.random() * easterEggCommands.length)];
-    setEasterEgg(randomCmd);
+    queueMicrotask(() => setEasterEgg(randomCmd));
   }, []);
 
   const getVisibleCount = () => {

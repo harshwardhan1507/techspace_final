@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { commits } from "../data/commits";
 import { IntroPhase } from "../hooks/useIntro";
 
 interface CommitNodeProps {
@@ -11,7 +10,7 @@ interface CommitNodeProps {
   phase: IntroPhase;
 }
 
-export function CommitNode({ message, index, total, phase }: CommitNodeProps) {
+export function CommitNode({ message, index, phase }: CommitNodeProps) {
   // Commit nodes should appear only in timeline phase or later
   const shouldAppear = phase !== "pending" && phase !== "idle";
   

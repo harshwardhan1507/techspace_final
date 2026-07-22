@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { commits } from "../data/commits";
 import { IntroPhase } from "../hooks/useIntro";

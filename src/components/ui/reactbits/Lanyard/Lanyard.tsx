@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unknown-property */
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-namespace, react-hooks/immutability */
 'use client';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
@@ -13,8 +13,8 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      meshLineGeometry: any;
-      meshLineMaterial: any;
+      meshLineGeometry: Record<string, unknown>;
+      meshLineMaterial: Record<string, unknown>;
     }
   }
 }

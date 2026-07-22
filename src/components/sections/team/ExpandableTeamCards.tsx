@@ -4,7 +4,7 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { TeamMember } from "./data";
-// import { Github, Linkedin } from "lucide-react";
+import { Globe } from "lucide-react";
 
 export function ExpandableTeamCards({ members }: { members: TeamMember[] }) {
   const [active, setActive] = useState<TeamMember | boolean | null>(null);
@@ -139,14 +139,40 @@ export function ExpandableTeamCards({ members }: { members: TeamMember[] }) {
                       </div>
                     </div>
 
-                    <div className="pt-6 mt-auto border-t border-white/5 flex gap-4">
+                    <div className="pt-6 mt-auto border-t border-white/5 flex gap-4 items-center">
+                      {active.portfolioUrl && (
+                        <a
+                          href={active.portfolioUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Portfolio"
+                          className="text-neutral-400 hover:text-white transition-all duration-200 hover:scale-110"
+                          aria-label="Portfolio"
+                        >
+                          <Globe className="w-5 h-5" />
+                        </a>
+                      )}
                       {active.githubUrl && (
-                        <a href={active.githubUrl} target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <a
+                          href={active.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="GitHub"
+                          className="text-neutral-400 hover:text-white transition-all duration-200 hover:scale-110"
+                          aria-label="GitHub"
+                        >
                           <Github className="w-5 h-5" />
                         </a>
                       )}
                       {active.linkedinUrl && (
-                        <a href={active.linkedinUrl} target="_blank" rel="noreferrer" className="text-neutral-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <a
+                          href={active.linkedinUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="LinkedIn"
+                          className="text-neutral-400 hover:text-white transition-all duration-200 hover:scale-110"
+                          aria-label="LinkedIn"
+                        >
                           <Linkedin className="w-5 h-5" />
                         </a>
                       )}

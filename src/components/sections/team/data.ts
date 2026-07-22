@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export type TeamMember = {
   id: string;
   name: string;
@@ -10,11 +8,36 @@ export type TeamMember = {
   technologies: string[];
   githubUrl?: string;
   linkedinUrl?: string;
+  portfolioUrl?: string;
   favoriteStack?: string;
   currentlyLearning?: string;
 };
 
 export const teamMembers: TeamMember[] = [
+  {
+    id: "harsh-wardhan",
+    name: "Harsh Wardhan",
+    role: "Member",
+    focusArea: "Full-Stack Development & Software Engineering",
+    image: "/team/harsh_avatar.jpg",
+    intro:
+      "I enjoy building software that combines thoughtful design with solid engineering. From full-stack platforms to AI-powered applications, I focus on creating polished experiences that are scalable, maintainable, and enjoyable to use.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Java",
+      "Python",
+      "Supabase",
+      "Flutter"
+    ],
+    portfolioUrl: "https://harshwardhanportfolio.vercel.app/",
+    githubUrl: "https://github.com/harshwardhan1507",
+    linkedinUrl: "https://linkedin.com/in/harsh-wardhan-singh-cse",
+    favoriteStack: "Next.js + TypeScript + Supabase",
+    currentlyLearning: "AI Agents, System Design & Flutter",
+  },
   {
     id: "alex",
     name: "Alex Mercer",

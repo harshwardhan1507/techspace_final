@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Smartphone, LayoutGrid, Layers } from "lucide-react";
+import { LayoutGrid, Layers } from "lucide-react";
 
 interface MobileDevVisualProps {
   accentColor: string;

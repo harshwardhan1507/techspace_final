@@ -27,7 +27,7 @@ export function CommunityMonthIllustration({ accentColor }: IllustrationProps) {
           className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-neutral-900/90 border border-indigo-500/40 text-xs font-mono text-indigo-300 shadow-xl backdrop-blur-md"
         >
           <MessageSquareCode className="w-3.5 h-3.5 text-indigo-400" />
-          <span>Prompt: "Build UI component"</span>
+          <span>Prompt: &quot;Build UI component&quot;</span>
         </motion.div>
 
         {/* AI Processing Glow Core */}

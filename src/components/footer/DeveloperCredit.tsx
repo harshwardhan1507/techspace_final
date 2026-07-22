@@ -124,7 +124,7 @@ export function DeveloperCredit() {
 
               <div className="flex flex-col justify-center">
                 <h3 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug">
-                  Hi, I'm Harsh Wardhan
+                  Hi, I&apos;m Harsh Wardhan
                 </h3>
                 <p className="text-xs font-semibold text-sky-400 mt-0.5">
                   Full-Stack Developer
@@ -212,7 +212,7 @@ export function DeveloperCredit() {
                         LinkedIn
                       </span>
                       <span className="text-[10px] font-medium text-neutral-400">
-                        Let's connect professionally
+                        Let&apos;s connect professionally
                       </span>
                     </div>
                   </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useMotionValueEvent, useScroll, motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -31,9 +31,10 @@ export const StickyScroll = ({
   const ref = useRef<HTMLDivElement>(null);
 
   // Phase 2: Page scrolling vs internal container scrolling
-  const scrollConfig = internalScroll
-    ? { container: ref, offset: ["start start", "end start"] as any }
-    : { target: ref, offset: ["start center", "end center"] as any };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const scrollConfig: any = internalScroll
+    ? { container: ref, offset: ["start start", "end start"] }
+    : { target: ref, offset: ["start center", "end center"] };
 
   const { scrollYProgress } = useScroll(scrollConfig);
   const cardLength = content.length;

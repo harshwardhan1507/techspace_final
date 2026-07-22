@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
-import { motion as motionTokens } from "@/design/tokens/motion";
 
 interface FloatingIconProps {
   Icon: LucideIcon;

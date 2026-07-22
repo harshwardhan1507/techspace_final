@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Lock, ShieldAlert } from "lucide-react";
+import { ShieldCheck, Lock } from "lucide-react";
 import { GlowLayer } from "../base/GlowLayer";
 import { IllustrationProps } from "@/config/registry/illustrations";
 

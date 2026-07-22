@@ -4,7 +4,6 @@ import {
   useScroll,
   useTransform,
   useSpring,
-  MotionValue,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Card, CardContent } from "./card";
@@ -72,7 +71,7 @@ export const ScrollTimeline = ({
   animationOrder = "sequential",
   cardAlignment = "alternating",
   lineColor = "bg-primary/30",
-  activeColor = "bg-primary",
+  activeColor: _activeColor = "bg-primary",
   progressIndicator = true,
   cardVariant = "default",
   cardEffect = "none",
@@ -85,7 +84,7 @@ export const ScrollTimeline = ({
   connectorStyle = "line",
   perspective = false,
   darkMode = false,
-  smoothScroll = true,
+  smoothScroll: _smoothScroll = true,
 }: ScrollTimelineProps) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -214,6 +213,7 @@ export const ScrollTimeline = ({
       variantClasses[cardVariant],
       effectClasses[cardEffect],
       alignmentClassesDesktop,
+      perspectiveClass,
       "w-full lg:w-[calc(50%-40px)]"
     );
   };
@@ -303,117 +303,159 @@ export const ScrollTimeline = ({
           {/* === MODIFICATION END === */}
 
           <div className="relative z-20">
-            {events.map((event, index) => {
-              const yOffset = useTransform(
-                smoothProgress,
-                [0, 1],
-                [parallaxIntensity * 100, -parallaxIntensity * 100]
-              );
-              return (
-                <div
-                  key={event.id || index}
-                  ref={(el) => {
-                    timelineRefs.current[index] = el;
-                  }}
-                  className={cn(
-                    "relative flex items-center mb-20 py-4",
-                    "flex-col lg:flex-row",
-                    cardAlignment === "alternating"
-                      ? index % 2 === 0
-                        ? "lg:justify-start"
-                        : "lg:flex-row-reverse lg:justify-start"
-                      : cardAlignment === "left"
-                      ? "lg:justify-start"
-                      : "lg:flex-row-reverse lg:justify-start"
-                  )}
-                >
-                  <div
-                    className={cn(
-                      "absolute top-1/2 transform -translate-y-1/2 z-30",
-                      "left-1/2 -translate-x-1/2"
-                    )}
-                  >
-                    <motion.div
-                      className={cn(
-                        "w-6 h-6 rounded-full border-4 bg-background flex items-center justify-center",
-                        index <= activeIndex
-                          ? "border-primary"
-                          : "border bg-card"
-                      )}
-                      animate={
-                        index <= activeIndex
-                          ? {
-                              scale: [1, 1.3, 1],
-                              boxShadow: [
-                                "0 0 0px rgba(99,102,241,0)",
-                                "0 0 12px rgba(99,102,241,0.6)",
-                                "0 0 0px rgba(99,102,241,0)",
-                              ],
-                            }
-                          : {}
-                      }
-                      transition={{
-                        duration: 0.8,
-                        repeat: Infinity,
-                        repeatDelay: 4,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  </div>
-                  <motion.div
-                    className={cn(
-                      getCardClasses(index),
-                      "mt-12 lg:mt-0"
-                    )}
-                    variants={getCardVariants(index)}
-                    initial="initial"
-                    whileInView="whileInView"
-                    viewport={{ once: false, margin: "-100px" }}
-                    style={parallaxIntensity > 0 ? { y: yOffset } : undefined}
-                  >
-                    <Card className="bg-background border">
-                      <CardContent className="p-6">
-                        {dateFormat === "badge" ? (
-                          <div className="flex items-center mb-2">
-                            {event.icon || (
-                              <Calendar className="h-4 w-4 mr-2 text-primary" />
-                            )}
-                            <span
-                              className={cn(
-                                "text-sm font-bold",
-                                event.color
-                                  ? `text-${event.color}`
-                                  : "text-primary"
-                              )}
-                            >
-                              {event.year}
-                            </span>
-                          </div>
-                        ) : (
-                          <p className="text-lg font-bold text-primary mb-2">
-                            {event.year}
-                          </p>
-                        )}
-                        <h3 className="text-xl font-bold mb-1">
-                          {event.title}
-                        </h3>
-                        {event.subtitle && (
-                          <p className="text-muted-foreground font-medium mb-2">
-                            {event.subtitle}
-                          </p>
-                        )}
-                        <p className="text-muted-foreground">
-                          {event.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </div>
-              );
-            })}
+            {events.map((event, index) => (
+              <TimelineItemRow
+                key={event.id || index}
+                event={event}
+                index={index}
+                smoothProgress={smoothProgress}
+                parallaxIntensity={parallaxIntensity}
+                cardAlignment={cardAlignment}
+                activeIndex={activeIndex}
+                dateFormat={dateFormat}
+                getCardClasses={getCardClasses}
+                getCardVariants={getCardVariants}
+                setRef={(el) => {
+                  timelineRefs.current[index] = el;
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
+    </div>
+  );
+};
+
+interface TimelineItemRowProps {
+  event: TimelineEvent;
+  index: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  smoothProgress: any;
+  parallaxIntensity: number;
+  cardAlignment: string;
+  activeIndex: number;
+  dateFormat: string;
+  getCardClasses: (index: number) => string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getCardVariants: (index: number) => any;
+  setRef: (el: HTMLDivElement | null) => void;
+}
+
+const TimelineItemRow = ({
+  event,
+  index,
+  smoothProgress,
+  parallaxIntensity,
+  cardAlignment,
+  activeIndex,
+  dateFormat,
+  getCardClasses,
+  getCardVariants,
+  setRef,
+}: TimelineItemRowProps) => {
+  const yOffset = useTransform(
+    smoothProgress,
+    [0, 1],
+    [parallaxIntensity * 100, -parallaxIntensity * 100]
+  );
+
+  return (
+    <div
+      ref={setRef}
+      className={cn(
+        "relative flex items-center mb-20 py-4",
+        "flex-col lg:flex-row",
+        cardAlignment === "alternating"
+          ? index % 2 === 0
+            ? "lg:justify-start"
+            : "lg:flex-row-reverse lg:justify-start"
+          : cardAlignment === "left"
+          ? "lg:justify-start"
+          : "lg:flex-row-reverse lg:justify-start"
+      )}
+    >
+      <div
+        className={cn(
+          "absolute top-1/2 transform -translate-y-1/2 z-30",
+          "left-1/2 -translate-x-1/2"
+        )}
+      >
+        <motion.div
+          className={cn(
+            "w-6 h-6 rounded-full border-4 bg-background flex items-center justify-center",
+            index <= activeIndex
+              ? "border-primary"
+              : "border bg-card"
+          )}
+          animate={
+            index <= activeIndex
+              ? {
+                  scale: [1, 1.3, 1],
+                  boxShadow: [
+                    "0 0 0px rgba(99,102,241,0)",
+                    "0 0 12px rgba(99,102,241,0.6)",
+                    "0 0 0px rgba(99,102,241,0)",
+                  ],
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.8,
+            repeat: Infinity,
+            repeatDelay: 4,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
+      <motion.div
+        className={cn(
+          getCardClasses(index),
+          "mt-12 lg:mt-0"
+        )}
+        variants={getCardVariants(index)}
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: false, margin: "-100px" }}
+        style={parallaxIntensity > 0 ? { y: yOffset } : undefined}
+      >
+        <Card className="bg-background border">
+          <CardContent className="p-6">
+            {dateFormat === "badge" ? (
+              <div className="flex items-center mb-2">
+                {event.icon || (
+                  <Calendar className="h-4 w-4 mr-2 text-primary" />
+                )}
+                <span
+                  className={cn(
+                    "text-sm font-bold",
+                    event.color
+                      ? `text-${event.color}`
+                      : "text-primary"
+                  )}
+                >
+                  {event.year}
+                </span>
+              </div>
+            ) : (
+              <p className="text-lg font-bold text-primary mb-2">
+                {event.year}
+              </p>
+            )}
+            <h3 className="text-xl font-bold mb-1">
+              {event.title}
+            </h3>
+            {event.subtitle && (
+              <p className="text-muted-foreground font-medium mb-2">
+                {event.subtitle}
+              </p>
+            )}
+            <p className="text-muted-foreground">
+              {event.description}
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 };

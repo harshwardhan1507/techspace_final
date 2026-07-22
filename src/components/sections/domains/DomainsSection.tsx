@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { BentoGrid } from "./components/BentoGrid";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { layout } from "@/design/tokens/layout";

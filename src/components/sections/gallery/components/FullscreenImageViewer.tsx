@@ -2,7 +2,7 @@
 
 import React, { useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, MapPin, Share2, Maximize2 } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Share2 } from "lucide-react";
 import { GalleryImage, Memory } from "../data/memories";
 
 interface FullscreenImageViewerProps {
@@ -23,10 +23,12 @@ export function FullscreenImageViewer({
     : [{ id: "hero", src: memory.image, caption: memory.title }];
 
   const [currentIndex, setCurrentIndex] = React.useState(initialIndex);
+  const [prevInitialIndex, setPrevInitialIndex] = React.useState(initialIndex);
 
-  useEffect(() => {
+  if (prevInitialIndex !== initialIndex) {
+    setPrevInitialIndex(initialIndex);
     setCurrentIndex(initialIndex);
-  }, [initialIndex]);
+  }
 
   const toPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1));
@@ -108,6 +110,7 @@ export function FullscreenImageViewer({
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 className="relative max-w-full max-h-full rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.9)] border border-white/10"
               >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={currentImg.src}
                   alt={currentImg.caption}

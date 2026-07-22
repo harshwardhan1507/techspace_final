@@ -4,7 +4,17 @@ import { useState, useEffect, useCallback } from "react";
 import { TIMELINE_CONFIG, SplashPhase } from "../config/timeline";
 
 export function useSplashTimeline() {
-  const [phase, setPhase] = useState<SplashPhase>("logo-reveal");
+  const [phase, setPhase] = useState<SplashPhase>(() => {
+    if (typeof window !== "undefined") {
+      const navEntries = performance.getEntriesByType?.("navigation");
+      const isReload = navEntries && navEntries.length > 0 && (navEntries[0] as PerformanceNavigationTiming).type === "reload";
+      const hasSeen = sessionStorage.getItem(TIMELINE_CONFIG.sessionKey);
+      if (hasSeen === "true" && !isReload) return "done";
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (prefersReducedMotion) return "done";
+    }
+    return "logo-reveal";
+  });
 
   const finishSplash = useCallback(() => {
     setPhase("done");
@@ -15,7 +25,7 @@ export function useSplashTimeline() {
 
   // Initialization & Smart Skip Checks
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || phase === "done") return;
 
     // Check if navigation is a page reload (F5 / Refresh)
     const navEntries = performance.getEntriesByType?.("navigation");
@@ -24,14 +34,14 @@ export function useSplashTimeline() {
     // Check if session storage flag exists (only skip if NOT a reload)
     const hasSeen = sessionStorage.getItem(TIMELINE_CONFIG.sessionKey);
     if (hasSeen === "true" && !isReload) {
-      finishSplash();
+      queueMicrotask(finishSplash);
       return;
     }
 
     // Check reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      finishSplash();
+      queueMicrotask(finishSplash);
       return;
     }
 
@@ -43,7 +53,7 @@ export function useSplashTimeline() {
     };
     window.addEventListener("pageshow", handlePageShow);
     return () => window.removeEventListener("pageshow", handlePageShow);
-  }, [finishSplash]);
+  }, [finishSplash, phase]);
 
   // Phase State Machine with 2.0s Total Budget
   useEffect(() => {

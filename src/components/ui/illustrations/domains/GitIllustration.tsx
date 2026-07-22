@@ -8,13 +8,6 @@ import { FloatingIcon } from "../shared/FloatingIcon";
 import { IllustrationProps } from "@/config/registry/illustrations";
 
 export function GitIllustration({ accentColor }: IllustrationProps) {
-  const hexToRgba = (hex: string, alpha: number) => {
-    const r = parseInt(hex.slice(1, 3), 16) || 0;
-    const g = parseInt(hex.slice(3, 5), 16) || 0;
-    const b = parseInt(hex.slice(5, 7), 16) || 0;
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-  };
-
   return (
     <div className="relative w-full h-full min-h-[160px] overflow-hidden rounded-xl">
       <GlowLayer color={accentColor} opacity={0.1} position="left" />

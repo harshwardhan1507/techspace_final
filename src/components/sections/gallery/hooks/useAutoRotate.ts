@@ -27,8 +27,9 @@ export function useAutoRotate({
       { threshold: 0.25 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    const currentElem = containerRef.current;
+    if (currentElem) {
+      observer.observe(currentElem);
     }
 
     const startTimer = () => {
@@ -56,7 +57,7 @@ export function useAutoRotate({
 
     return () => {
       if (timer) clearInterval(timer);
-      if (containerRef.current) observer.unobserve(containerRef.current);
+      if (currentElem) observer.unobserve(currentElem);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [nextMemory, isHovered, intervalMs]);

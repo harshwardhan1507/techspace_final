@@ -73,7 +73,7 @@ export function MemoryOverlay({
         >
           <Quote className="w-4 h-4 text-neutral-400 flex-shrink-0 mt-0.5" />
           <p className="leading-relaxed font-serif text-neutral-200">
-            "{memory.quote}"
+            &quot;{memory.quote}&quot;
           </p>
         </motion.div>
 

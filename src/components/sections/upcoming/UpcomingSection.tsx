@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { initiativesData } from "./data";
 import { InitiativeCard } from "./components/InitiativeCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";

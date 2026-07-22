@@ -1,4 +1,4 @@
-import { Code2, Shield, Smartphone, Rocket, GitBranch, Terminal, TreeDeciduous, LucideIcon } from "lucide-react";
+import { Code2, Smartphone, GitBranch, Terminal, TreeDeciduous, LucideIcon } from "lucide-react";
 
 export type InitiativeStatus = "Coming Soon" | "Planning" | "Upcoming";
 export type InitiativeDifficulty = "Beginner" | "Intermediate" | "All Levels";

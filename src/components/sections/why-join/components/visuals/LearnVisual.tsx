@@ -24,7 +24,7 @@ export function LearnVisual() {
             <span className="text-blue-400">import</span>
             <span className="text-emerald-300">{"{ useState }"}</span>
             <span className="text-blue-400">from</span>
-            <span className="text-orange-300">"react"</span>
+            <span className="text-orange-300">&quot;react&quot;</span>
           </div>
           <div className="w-3/4 h-2 bg-white/5 rounded mt-2" />
           <div className="w-1/2 h-2 bg-white/5 rounded" />

@@ -28,7 +28,7 @@ export function WorkshopIllustration({ accentColor }: IllustrationProps) {
         >
           <Terminal className="w-3.5 h-3.5 text-sky-400" />
           <span className="text-purple-400">print</span>
-          <span className="text-amber-300">("Hello TechSpace!")</span>
+          <span className="text-amber-300">(&quot;Hello TechSpace!&quot;)</span>
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
             transition={{ duration: 0.8, repeat: Infinity }}

@@ -49,7 +49,8 @@ export function Timeline({
   dateFormat = "badge",
   className = "",
   revealAnimation = "fade",
-  perspective = false,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  perspective: _perspective = false,
   darkMode = true,
 }: ScrollTimelineProps) {
   const scrollRef = useRef<HTMLDivElement>(null);

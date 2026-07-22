@@ -188,7 +188,7 @@ export function EventStoryExperience({
                 >
                   <Quote className="w-5 h-5 text-neutral-400 flex-shrink-0 mt-0.5" />
                   <p className="font-serif leading-relaxed">
-                    "{memory.quote}"
+                    &quot;{memory.quote}&quot;
                   </p>
                 </div>
 
@@ -225,6 +225,7 @@ export function EventStoryExperience({
                           isWide ? "sm:col-span-2" : "col-span-1"
                         } h-64 sm:h-72`}
                       >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={img.src}
                           alt={img.caption}

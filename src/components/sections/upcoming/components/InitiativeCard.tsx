@@ -123,7 +123,7 @@ export function InitiativeCard({ initiative, index, variant = "standard" }: Init
           {isFeatured && initiative.id === "intro-programming" && (
             <div className="my-5 pt-4 border-t border-neutral-800/60">
               <h4 className="text-xs font-semibold tracking-wider text-neutral-300 uppercase mb-3 flex items-center gap-2">
-                <span>📚 What You'll Learn</span>
+                <span>📚 What You&apos;ll Learn</span>
               </h4>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-neutral-400 font-medium list-none">
                 <li className="flex items-center gap-2">
