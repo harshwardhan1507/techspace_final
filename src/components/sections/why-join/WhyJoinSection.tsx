@@ -10,7 +10,7 @@ export default function WhyJoinSection() {
     <section 
       id="why-join" 
       aria-label="Why Join TechSpace"
-      className="relative w-full pt-32 pb-36 bg-[#020202]"
+      className="relative w-full pt-40 md:pt-48 pb-36 bg-[#020202]"
     >
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none">

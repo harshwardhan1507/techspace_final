@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function WhyJoinHeader() {
   return (
-    <div className="mb-12 md:mb-20">
+    <div className="mb-16 md:mb-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
