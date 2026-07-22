@@ -10,7 +10,10 @@ import { useAutoRotate } from "./hooks/useAutoRotate";
 import { layout } from "@/design/tokens/layout";
 import { ArrowRight, Sparkles } from "lucide-react";
 
+import { useJoinModal } from "@/components/join/hooks/useJoinModal";
+
 export default function GallerySection() {
+  const { openJoinModal } = useJoinModal();
   const {
     activeIndex,
     activeMemory,
@@ -106,13 +109,13 @@ export default function GallerySection() {
             Every event becomes another story. Join us and create the next one.
           </h3>
 
-          <a
-            href="#join"
+          <button
+            onClick={openJoinModal}
             className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-neutral-200 transition-all duration-300 shadow-xl group mt-2"
           >
             <span>Explore All Community Events</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>
