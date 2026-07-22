@@ -60,6 +60,22 @@ export default function RootLayout({
       className={`${geist.variable} ${inter.variable} dark`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var navEntries = performance.getEntriesByType('navigation');
+                var isReload = navEntries && navEntries.length > 0 && navEntries[0].type === 'reload';
+                if (!isReload && (sessionStorage.getItem('techspace-splash-seen') === 'true' || sessionStorage.getItem('techspace-intro-seen') === 'true')) {
+                  document.documentElement.classList.add('no-splash');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col font-sans antialiased bg-background text-foreground selection:bg-primary/30 selection:text-primary-foreground">
         <ThemeProvider>
           <MotionProvider>
