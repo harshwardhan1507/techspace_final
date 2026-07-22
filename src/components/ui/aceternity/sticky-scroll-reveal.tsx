@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { useMotionValueEvent, useScroll } from "motion/react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const StickyScroll = ({
@@ -28,13 +29,13 @@ export const StickyScroll = ({
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  
-  const scrollConfig = internalScroll 
+
+  const scrollConfig = internalScroll
     ? { container: ref, offset: ["start start", "end start"] as any }
-    : { target: ref, offset: ["start 30%", "end 70%"] as any };
-    
+    : { target: ref, offset: ["start center", "end center"] as any };
+
   const { scrollYProgress } = useScroll(scrollConfig);
-  
+
   const cardLength = content.length;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -58,9 +59,9 @@ export const StickyScroll = ({
     "#171717", // neutral-900
   ];
   const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)",
-    "linear-gradient(to bottom right, #ec4899, #6366f1)",
-    "linear-gradient(to bottom right, #f97316, #eab308)",
+    "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
+    "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
+    "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
   ];
 
   const backgroundGradient = linearGradients[activeCard % linearGradients.length];
@@ -71,7 +72,7 @@ export const StickyScroll = ({
         backgroundColor: showBackground ? backgroundColors[activeCard % backgroundColors.length] : "transparent",
       }}
       className={cn(
-        "relative flex justify-between items-start w-full",
+        "relative flex justify-center space-x-10",
         fixedHeight ? "h-[30rem]" : "h-auto",
         internalScroll ? "overflow-y-auto" : "overflow-visible",
         showBackground ? "rounded-md p-10" : "",
@@ -80,60 +81,48 @@ export const StickyScroll = ({
       )}
       ref={ref}
     >
-      {/* Left Text Column */}
-      <div className="relative flex items-start w-full max-w-2xl">
-        <div className={cn("w-full", leftClassName)}>
+      <div className="relative flex items-start px-4 w-full">
+        <div className={cn("max-w-2xl", leftClassName)}>
           {content.map((item, index) => (
-            <div key={item.title + index} className="min-h-[50vh] flex flex-col justify-center py-12 md:py-16">
+            <div key={item.title + index} className="my-20">
               <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.25,
-                  scale: activeCard === index ? 1 : 0.98,
+                initial={{
+                  opacity: 0,
                 }}
-                transition={{ duration: 0.3 }}
-                className="text-2xl md:text-4xl font-bold tracking-tight text-white"
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.3,
+                }}
+                className="text-2xl font-bold text-slate-100"
               >
                 {item.title}
               </motion.h2>
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{
-                  opacity: activeCard === index ? 1 : 0.25,
+                initial={{
+                  opacity: 0,
                 }}
-                transition={{ duration: 0.3 }}
-                className="text-base md:text-lg mt-4 max-w-lg text-neutral-300 leading-relaxed"
+                animate={{
+                  opacity: activeCard === index ? 1 : 0.3,
+                }}
+                className="text-lg mt-10 max-w-sm text-slate-300"
               >
                 {item.description}
               </motion.p>
             </div>
           ))}
-          <div className="h-32" />
+          <div className="h-40" />
         </div>
       </div>
-
-      {/* Right Column Wrapper - Fixed Sticky Visual */}
-      <div className="hidden lg:block w-full max-w-[500px] shrink-0 self-stretch relative">
+      {/* Right Column Wrapper - Stretches to full flex container height */}
+      <div className="hidden lg:block w-full max-w-[500px]">
         <div
           style={{ background: showBackground ? backgroundGradient : undefined }}
           className={cn(
-            "sticky top-32 md:top-36 z-30 transition-all duration-300",
+            "sticky top-10",
             showBackground ? "h-60 w-80 rounded-md bg-white overflow-hidden" : "",
             contentClassName
           )}
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeCard}
-              initial={{ opacity: 0, scale: 0.96, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: -12 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full h-full"
-            >
-              {content[activeCard].content ?? null}
-            </motion.div>
-          </AnimatePresence>
+          {content[activeCard].content ?? null}
         </div>
       </div>
     </motion.div>

@@ -18,8 +18,8 @@ export function WhyJoinSticky() {
     <div className="w-full mx-auto max-w-7xl px-4 md:px-6">
       {/* Desktop Sticky Scroll */}
       <div className="hidden lg:block">
-        <StickyScroll 
-          content={content} 
+        <StickyScroll
+          content={content}
           fixedHeight={false}
           internalScroll={false}
           showBackground={false}
@@ -34,8 +34,8 @@ export function WhyJoinSticky() {
         {benefitsData.map((step) => {
           const Visual = step.visual;
           return (
-            <div 
-              key={step.id} 
+            <div
+              key={step.id}
               className="flex flex-col space-y-4 p-5 rounded-2xl bg-neutral-900/60 border border-white/10 backdrop-blur-md shadow-xl"
             >
               <div className="w-full h-[220px] rounded-xl overflow-hidden bg-neutral-950 flex items-center justify-center p-3 border border-white/5">
