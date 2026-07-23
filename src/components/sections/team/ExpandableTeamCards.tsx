@@ -73,13 +73,22 @@ export function ExpandableTeamCards({ members }: { members: TeamMember[] }) {
                 {/* Left/Top side: Image */}
                 <motion.div 
                   layoutId={`image-${active.id}-${id}`}
-                  className="w-full md:w-2/5 h-44 sm:h-56 md:h-auto shrink-0 relative overflow-hidden bg-neutral-900"
+                  className="w-full md:w-2/5 h-44 sm:h-56 md:h-auto shrink-0 relative overflow-hidden bg-neutral-900 flex items-center justify-center"
                 >
-                  <img
-                    src={active.image}
-                    alt={active.name}
-                    className="w-full h-full object-cover object-center"
-                  />
+                  {active.image ? (
+                    <img
+                      src={active.image}
+                      alt={active.name}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  ) : (
+                    <div className="w-full h-full min-h-[180px] flex items-center justify-center bg-gradient-to-br from-[#181824] to-[#08080C] text-[#4682B4] font-bold text-5xl select-none">
+                      {active.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </div>
+                  )}
                   {/* Subtle gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-[#08080C] via-transparent to-transparent pointer-events-none" />
                 </motion.div>
@@ -195,14 +204,23 @@ export function ExpandableTeamCards({ members }: { members: TeamMember[] }) {
           >
             <motion.div 
               layoutId={`image-${member.id}-${id}`}
-              className="w-full aspect-[4/5] relative overflow-hidden"
+              className="w-full aspect-[4/5] relative overflow-hidden bg-neutral-900 flex items-center justify-center"
             >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+              {member.image ? (
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#181824] to-[#050505] text-[#4682B4] font-bold text-4xl select-none group-hover:scale-105 transition-transform duration-700 ease-out">
+                  {member.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
+                </div>
+              )}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/50 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none" />
             </motion.div>
 
             <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col">

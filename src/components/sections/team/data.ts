@@ -15,6 +15,76 @@ export type TeamMember = {
 
 export const teamMembers: TeamMember[] = [
   {
+    id: "anshul-yadav",
+    name: "Anshul Yadav",
+    role: "Founder & Ex-President",
+    focusArea: "Leadership, Community Building & Innovation",
+    image: "/team/anshul_yadav_pic.jpeg",
+    intro:
+      "Founded TechSpace with the vision of building a collaborative community where students can explore technology, develop practical skills, and grow through innovation and teamwork.",
+    technologies: [
+      "Leadership",
+      "Community Building",
+      "Project Management",
+      "Innovation"
+    ],
+    linkedinUrl: "https://www.linkedin.com/in/anshul-yadav-3a7b4b293/",
+    githubUrl: "https://github.com/Anshulrao08"
+  },
+
+  {
+    id: "anjali",
+    name: "Anjali",
+    role: "President",
+    focusArea: "Leadership & Community Building",
+    image: "/team/anjali_pic.png",
+    intro:
+      "Passionate about leading teams, fostering innovation, and creating opportunities for students to learn, collaborate, and grow together.",
+    technologies: [
+      "Leadership",
+      "Project Management",
+      "Public Speaking",
+      "Team Coordination"
+    ],
+    linkedinUrl: "https://www.linkedin.com/in/your-linkedin-profile",
+    githubUrl: "https://github.com/your-github-username"
+  },
+  {
+    id: "aryan-arya",
+    name: "Aryan Arya",
+    role: "Vice President",
+    focusArea: "AI/ML, Full-Stack",
+    image: "/team/aryanarya_pic.png",
+    intro:
+      "I constantly try learn new technologies in AI and Machine Learning domain.",
+    technologies: [
+      "React",
+      "Node.js",
+      "Java",
+      "Python"
+    ],
+    githubUrl: "https://github.com/Aryankumar0022",
+    linkedinUrl: "https://www.linkedin.com/in/aryan-kumar-0a54aa2a5/",
+  },
+  {
+    id: "khushbu-chauhan",
+    name: "Khushbu Chauhan",
+    role: "Treasurer",
+    focusArea: "Finance & Team Management",
+    image: "/team/khushbu_chauhan_pic.png",
+    intro:
+      "I help manage finances and keep everything organized with a calm, detail-oriented approach.",
+    technologies: [
+      "Budget Planning",
+      "Accounting",
+      "Organization",
+      "Leadership"
+    ],
+    portfolioUrl: "https://iamaryankumar.vercel.app/",
+    githubUrl: "https://github.com/chauhanayush1148-code",
+    linkedinUrl: "https://www.linkedin.com/in/khushbu-chauhan-076b4329a"
+  },
+  {
     id: "harsh-wardhan",
     name: "Harsh Wardhan",
     role: "Member",
@@ -51,23 +121,11 @@ export const teamMembers: TeamMember[] = [
       "Python",
       "Pandas"
     ],
+    portfolioUrl: "https://aryan-exe.vercel.app/",
     githubUrl: "https://github.com/aryanexe07",
     linkedinUrl: "https://www.linkedin.com/in/aryan-tailor/",
     favoriteStack: "Python",
     currentlyLearning: "Java",
-  },
-  {
-    id: "alex",
-    name: "Alex Mercer",
-    role: "President",
-    focusArea: "Full-Stack & Systems",
-    image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=800&h=800",
-    intro: "I love building scalable systems and growing our community of developers. When I'm not coding, I'm usually organizing our next big hackathon.",
-    technologies: ["React", "Go", "PostgreSQL", "Docker"],
-    githubUrl: "https://github.com",
-    linkedinUrl: "https://linkedin.com",
-    favoriteStack: "Next.js + Go",
-    currentlyLearning: "Rust & eBPF",
   },
 
   {
@@ -93,19 +151,6 @@ export const teamMembers: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/tathagat-aryan-4993a1286",
     favoriteStack: "MERN",
     currentlyLearning: "MongoDB",
-  },
-  {
-    id: "sarah",
-    name: "Sarah Chen",
-    role: "Technical Lead",
-    focusArea: "AI & Machine Learning",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800&h=800",
-    intro: "Passionate about making AI accessible. I lead the ML reading group and help students build their first neural networks.",
-    technologies: ["Python", "PyTorch", "TensorFlow", "CUDA"],
-    githubUrl: "https://github.com",
-    linkedinUrl: "https://linkedin.com",
-    favoriteStack: "PyTorch + FastAPI",
-    currentlyLearning: "Diffusion Models",
   }
 
 ];
