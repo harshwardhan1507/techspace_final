@@ -111,6 +111,8 @@ export const metadata: Metadata = {
   },
 };
 
+import Script from "next/script";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -123,8 +125,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script
-          suppressHydrationWarning
+        <Script
+          id="techspace-splash-check"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               try {

@@ -12,13 +12,7 @@ export type IntroPhase =
   | "done";
 
 export function useIntro() {
-  const [phase, setPhase] = useState<IntroPhase>(() => {
-    if (typeof window !== "undefined") {
-      const hasSeen = sessionStorage.getItem("techspace-intro-seen");
-      if (hasSeen === "true") return "done";
-    }
-    return "pending";
-  });
+  const [phase, setPhase] = useState<IntroPhase>("pending");
 
   const skipIntro = useCallback(() => {
     setPhase("done");
@@ -30,6 +24,14 @@ export function useIntro() {
   // Initialization & SSR safe check
   useEffect(() => {
     if (phase !== "pending") return;
+
+    if (typeof window !== "undefined") {
+      const hasSeen = sessionStorage.getItem("techspace-intro-seen");
+      if (hasSeen === "true") {
+        setTimeout(() => skipIntro(), 0);
+        return;
+      }
+    }
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"

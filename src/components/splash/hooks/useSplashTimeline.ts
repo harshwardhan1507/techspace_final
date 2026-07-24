@@ -4,17 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { TIMELINE_CONFIG, SplashPhase } from "../config/timeline";
 
 export function useSplashTimeline() {
-  const [phase, setPhase] = useState<SplashPhase>(() => {
-    if (typeof window !== "undefined") {
-      const navEntries = performance.getEntriesByType?.("navigation");
-      const isReload = navEntries && navEntries.length > 0 && (navEntries[0] as PerformanceNavigationTiming).type === "reload";
-      const hasSeen = sessionStorage.getItem(TIMELINE_CONFIG.sessionKey);
-      if (hasSeen === "true" && !isReload) return "done";
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (prefersReducedMotion) return "done";
-    }
-    return "logo-reveal";
-  });
+  const [phase, setPhase] = useState<SplashPhase>("logo-reveal");
 
   const finishSplash = useCallback(() => {
     setPhase("done");

@@ -44,7 +44,9 @@ export default function Lanyard({
   model = "/hero/card.glb",
   bandTexture = "/hero/lanyard.png"
 }: any) {
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(() => 
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
