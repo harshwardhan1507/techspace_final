@@ -5,7 +5,9 @@ export type TeamMember = {
   focusArea: string;
   image: string;
   intro: string;
-  technologies: string[];
+  tagsTitle?: string;
+  tags?: string[];
+  technologies?: string[];
   githubUrl?: string;
   linkedinUrl?: string;
   portfolioUrl?: string;
@@ -22,7 +24,8 @@ export const teamMembers: TeamMember[] = [
     image: "/team/anshul_yadav_pic.jpeg",
     intro:
       "Founded TechSpace with the vision of building a collaborative community where students can explore technology, develop practical skills, and grow through innovation and teamwork.",
-    technologies: [
+    tagsTitle: "Skills",
+    tags: [
       "Leadership",
       "Community Building",
       "Project Management",
@@ -40,7 +43,8 @@ export const teamMembers: TeamMember[] = [
     image: "/team/anjali_pic.png",
     intro:
       "Passionate about leading teams, fostering innovation, and creating opportunities for students to learn, collaborate, and grow together.",
-    technologies: [
+    tagsTitle: "Skills",
+    tags: [
       "Leadership",
       "Project Management",
       "Public Speaking",
@@ -57,7 +61,8 @@ export const teamMembers: TeamMember[] = [
     image: "/team/aryanarya_pic.png",
     intro:
       "I constantly try learn new technologies in AI and Machine Learning domain.",
-    technologies: [
+    tagsTitle: "Technologies",
+    tags: [
       "React",
       "Node.js",
       "Java",
@@ -74,7 +79,8 @@ export const teamMembers: TeamMember[] = [
     image: "/team/khushbu_chauhan_pic.png",
     intro:
       "I help manage finances and keep everything organized with a calm, detail-oriented approach.",
-    technologies: [
+    tagsTitle: "Skills",
+    tags: [
       "Budget Planning",
       "Accounting",
       "Organization",
@@ -92,7 +98,8 @@ export const teamMembers: TeamMember[] = [
     image: "/team/harsh_pic.png",
     intro:
       "I enjoy building scalable software that blends thoughtful design with solid engineering, creating polished and user-friendly experiences.",
-    technologies: [
+    tagsTitle: "Technologies",
+    tags: [
       "Next.js",
       "React",
       "TypeScript",
@@ -104,7 +111,7 @@ export const teamMembers: TeamMember[] = [
     portfolioUrl: "https://harshwardhanportfolio.vercel.app/",
     githubUrl: "https://github.com/harshwardhan1507",
     linkedinUrl: "https://linkedin.com/in/harsh-wardhan-singh-cse",
-    favoriteStack: "Next.js + TypeScript + Supabase",
+    favoriteStack: "Next.js + TypeScript + Java",
     currentlyLearning: "AI Agents, System Design & Flutter",
   },
   {
@@ -115,7 +122,7 @@ export const teamMembers: TeamMember[] = [
     image: "team/aryantailor_pic.png",
     intro:
       "CS student passionate about Artificial Intelligence and Data Structures & Algorithms. Focused on building strong fundamentals and solving real problems.",
-    technologies: [
+    tags: [
       "React",
       "Next.js",
       "Python",
@@ -136,7 +143,8 @@ export const teamMembers: TeamMember[] = [
     image: "team/tathagat_pic.png",
     intro:
       "Passionate Full-Stack Developer focused on building responsive, user-friendly web applications with modern technologies and clean design.",
-    technologies: [
+    tagsTitle: "Technologies",
+    tags: [
       "HTML",
       "CSS",
       "JavaScript",
@@ -144,7 +152,6 @@ export const teamMembers: TeamMember[] = [
       "Node.js",
       "Express.js",
       "C++",
-      "Git",
       "GitHub"
     ],
     githubUrl: "https://github.com/Aryan689t",

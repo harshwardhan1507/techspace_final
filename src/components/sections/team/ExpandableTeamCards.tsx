@@ -137,16 +137,26 @@ export function ExpandableTeamCards({ members }: { members: TeamMember[] }) {
                       )}
                     </div>
 
-                    <div>
-                      <span className="block text-neutral-500 uppercase tracking-wider text-xs mb-3">Technologies</span>
-                      <div className="flex flex-wrap gap-2">
-                        {active.technologies.map(tech => (
-                          <span key={tech} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-neutral-300">
-                            {tech}
+                    {((displayTags) => {
+                      if (!displayTags || displayTags.length === 0) return null;
+                      return (
+                        <div>
+                          <span className="block text-neutral-500 uppercase tracking-wider text-xs mb-3">
+                            {active.tagsTitle || "Technologies"}
                           </span>
-                        ))}
-                      </div>
-                    </div>
+                          <div className="flex flex-wrap gap-2">
+                            {displayTags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-neutral-300"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })(active.tags || active.technologies)}
 
                     <div className="pt-6 mt-auto border-t border-white/5 flex gap-4 items-center">
                       {active.portfolioUrl && (
