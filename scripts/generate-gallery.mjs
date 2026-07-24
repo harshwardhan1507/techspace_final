@@ -26,12 +26,12 @@ const EVENT_PRIORITY = {
   javaguiworkshop: 4,
   java_workshop: 4,
   javaworkshop: 4,
-  java_dsa: 5,
-  javadsa: 5,
-  dsa_workshop: 5,
-  dsaworkshop: 5,
-  devops_workshop: 6,
-  devopsworkshop: 6,
+  devops_workshop: 5,
+  devopsworkshop: 5,
+  java_dsa: 6,
+  javadsa: 6,
+  dsa_workshop: 6,
+  dsaworkshop: 6,
 };
 
 const DEFAULT_ACCENT_COLORS = [
