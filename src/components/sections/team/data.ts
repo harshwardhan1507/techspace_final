@@ -68,6 +68,7 @@ export const teamMembers: TeamMember[] = [
       "Java",
       "Python"
     ],
+    portfolioUrl: "https://iamaryankumar.vercel.app/",
     githubUrl: "https://github.com/Aryankumar0022",
     linkedinUrl: "https://www.linkedin.com/in/aryan-kumar-0a54aa2a5/",
   },
@@ -86,7 +87,7 @@ export const teamMembers: TeamMember[] = [
       "Organization",
       "Leadership"
     ],
-    portfolioUrl: "https://iamaryankumar.vercel.app/",
+
     githubUrl: "https://github.com/chauhanayush1148-code",
     linkedinUrl: "https://www.linkedin.com/in/khushbu-chauhan-076b4329a"
   },
