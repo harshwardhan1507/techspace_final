@@ -4,14 +4,14 @@
   "coverImage": "/assets/gallery/java_dsa/IMG_20251119_125029.jpg",
   "eventImage": "/assets/gallery/java_dsa/IMG_20251119_125029.jpg",
   "category": "WORKSHOP",
-  "date": "October 2025",
+  "date": "25 September – 31 October 2025",
   "location": "5th Floor Labs",
-  "participants": "50 Attendees",
-  "duration": "1 Day",
+  "participants": "50+ Attendees",
+  "duration": "3 Phases (5 Sessions)",
   "track": "Algorithms & Data Structures",
-  "quote": "Mastering fundamental data structures and algorithmic complexity in Java.",
-  "story": "Hands-on data structures and algorithms workshop covering core concepts, complexity analysis, and interactive problem solving in Java.",
-  "description": "A comprehensive practical workshop on Data Structures and Algorithms using Java. Students learned arrays, linked lists, stacks, queues, trees, and algorithm optimization through interactive coding exercises.",
+  "quote": "Building strong problem-solving foundations through Java and Data Structures.",
+  "story": "A multi-phase workshop series introducing students to Data Structures and Algorithms using Java through progressive learning, coding practice, and real-world problem solving.",
+  "description": "The DSA using Java workshop was conducted in three phases to provide a structured learning experience. Participants explored fundamental data structures, algorithm design, and complexity analysis through hands-on coding sessions. The workshop emphasized logical thinking, efficient problem-solving, and practical Java implementations of arrays, linked lists, stacks, queues, trees, and searching and sorting algorithms.",
   "accentColor": "#0EA5E9",
   "technologies": [
     "Java",
@@ -21,9 +21,26 @@
     "Problem Solving"
   ],
   "highlights": [
-    "Core Data Structures Practice",
-    "Interactive Algorithm Challenges",
-    "Time & Space Complexity Analysis",
+    "Phase 1: DSA Fundamentals (25 September 2025)",
+    "Phase 2: Intermediate Concepts (30 September & 1 October 2025)",
+    "Phase 3: Advanced Problem Solving (30 & 31 October 2025)",
     "Hands-on Java Coding Sessions"
+  ],
+  "phases": [
+    {
+      "title": "Phase 1",
+      "date": "25 September 2025",
+      "focus": "Introduction to Data Structures & Java Fundamentals"
+    },
+    {
+      "title": "Phase 2",
+      "date": "30 September – 1 October 2025",
+      "focus": "Core Data Structures & Algorithm Implementation"
+    },
+    {
+      "title": "Phase 3",
+      "date": "30 – 31 October 2025",
+      "focus": "Advanced Algorithms, Optimization & Problem Solving"
+    }
   ]
 }

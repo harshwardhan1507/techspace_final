@@ -221,6 +221,7 @@ function generateGallery() {
       highlights: metadata.highlights || undefined,
       technologies: metadata.technologies || undefined,
       resources: parsedResources,
+      phases: metadata.phases || undefined,
     });
   });
 

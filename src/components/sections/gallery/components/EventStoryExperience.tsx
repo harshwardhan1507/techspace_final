@@ -286,6 +286,43 @@ export function EventStoryExperience({
                 </div>
               </div>
 
+              {/* ---------------- WORKSHOP PHASES ---------------- */}
+              {memory.phases && memory.phases.length > 0 && (
+                <div className="space-y-4">
+                  <h2 className="text-lg sm:text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                    <Clock className="w-4 h-4" style={{ color: memory.accentColor }} />
+                    <span>Workshop Phases</span>
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {memory.phases.map((phase, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2 relative overflow-hidden"
+                      >
+                        <div
+                          className="absolute top-0 left-0 w-1 h-full"
+                          style={{ backgroundColor: memory.accentColor }}
+                        />
+                        <div className="flex items-center justify-between">
+                          <span
+                            className="text-xs font-mono font-bold uppercase"
+                            style={{ color: memory.accentColor }}
+                          >
+                            {phase.title}
+                          </span>
+                          <span className="text-[11px] font-mono text-neutral-400">
+                            {phase.date}
+                          </span>
+                        </div>
+                        <p className="text-xs text-neutral-200 leading-relaxed font-medium">
+                          {phase.focus}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* ---------------- EVENT HIGHLIGHTS ---------------- */}
               {memory.highlights && memory.highlights.length > 0 && (
                 <div className="space-y-4">

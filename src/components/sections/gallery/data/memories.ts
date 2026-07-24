@@ -26,6 +26,12 @@ export interface GalleryImage {
   aspectRatio?: "wide" | "square" | "tall";
 }
 
+export interface EventPhase {
+  title: string;
+  date: string;
+  focus: string;
+}
+
 export interface Memory {
   id: string;
   title: string;
@@ -47,6 +53,7 @@ export interface Memory {
   highlights?: string[];
   technologies?: string[];
   resources?: Resource[];
+  phases?: EventPhase[];
 }
 
 export const memories: Memory[] = generatedGallery as Memory[];
