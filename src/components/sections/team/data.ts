@@ -158,6 +158,24 @@ export const teamMembers: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/tathagat-aryan-4993a1286",
     favoriteStack: "MERN",
     currentlyLearning: "MongoDB",
+  },
+  {
+    id: "aman-yadav",
+    name: "Aman Kumar Yadav",
+    role: "Designer",
+    focusArea: "UI/UX Design & Visual Branding",
+    image: "/team/aman_yadav_pic.png",
+    intro:
+      "I design clean, engaging, and user-focused visuals that help bring TechSpace's ideas and identity to life.",
+    tagsTitle: "Skills",
+    tags: [
+      "UI/UX Design",
+      "Graphic Design",
+      "Brand Identity",
+      "Figma"
+    ],
+    githubUrl: "https://github.com/amanyadav2311",
+    linkedinUrl: "https://www.linkedin.com/in/aman-kumar-yadav-064b6338a/"
   }
 
 ];

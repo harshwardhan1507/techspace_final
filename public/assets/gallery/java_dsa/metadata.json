@@ -1,0 +1,29 @@
+{
+  "id": "mem-java-dsa",
+  "title": "DSA using Java",
+  "coverImage": "/assets/gallery/java_dsa/IMG_20251119_125029.jpg",
+  "eventImage": "/assets/gallery/java_dsa/IMG_20251119_125029.jpg",
+  "category": "WORKSHOP",
+  "date": "October 2025",
+  "location": "5th Floor Labs",
+  "participants": "50 Attendees",
+  "duration": "1 Day",
+  "track": "Algorithms & Data Structures",
+  "quote": "Mastering fundamental data structures and algorithmic complexity in Java.",
+  "story": "Hands-on data structures and algorithms workshop covering core concepts, complexity analysis, and interactive problem solving in Java.",
+  "description": "A comprehensive practical workshop on Data Structures and Algorithms using Java. Students learned arrays, linked lists, stacks, queues, trees, and algorithm optimization through interactive coding exercises.",
+  "accentColor": "#0EA5E9",
+  "technologies": [
+    "Java",
+    "Data Structures",
+    "Algorithms",
+    "Time Complexity",
+    "Problem Solving"
+  ],
+  "highlights": [
+    "Core Data Structures Practice",
+    "Interactive Algorithm Challenges",
+    "Time & Space Complexity Analysis",
+    "Hands-on Java Coding Sessions"
+  ]
+}

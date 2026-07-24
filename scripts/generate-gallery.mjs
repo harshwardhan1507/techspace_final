@@ -26,6 +26,8 @@ const EVENT_PRIORITY = {
   javaguiworkshop: 4,
   java_workshop: 4,
   javaworkshop: 4,
+  java_dsa: 5,
+  javadsa: 5,
   dsa_workshop: 5,
   dsaworkshop: 5,
   devops_workshop: 6,
