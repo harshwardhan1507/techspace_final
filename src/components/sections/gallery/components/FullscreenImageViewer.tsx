@@ -113,7 +113,7 @@ export function FullscreenImageViewer({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={currentImg.src}
-                  alt={currentImg.caption}
+                  alt={currentImg.alt || currentImg.caption || memory.title}
                   className="max-w-full max-h-[80vh] object-contain rounded-2xl"
                 />
               </motion.div>
@@ -164,7 +164,7 @@ export function FullscreenImageViewer({
                   if (navigator.share) {
                     navigator.share({
                       title: memory.title,
-                      text: currentImg.caption,
+                      text: currentImg.caption || undefined,
                       url: window.location.href,
                     }).catch(() => {});
                   }

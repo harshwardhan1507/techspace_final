@@ -1,0 +1,36 @@
+{
+  "id": "mem-codeblitz",
+  "title": "CodeBlitz",
+  "coverImage": "/assets/gallery/codeblitz/IMG-20260313-WA0084.jpg",
+  "eventImage": "/assets/gallery/codeblitz/IMG-20260313-WA0084.jpg",
+  "category": "Verge Event",
+  "date": "13th March 2026",
+  "location": "5th Floor Labs",
+  "participants": "40 Participants",
+  "duration": "1.5 Hours",
+  "track": "Competitive Programming",
+  "quote": "360 seconds on the clock. Pure algorithmic speed.",
+  "story": "High-octane competitive programming sprint testing rapid problem solving, clean execution, and endurance under pressure.",
+  "description": "Code Blitz is a competitive programming event where students solve coding problems under time constraints. Participants compete to write efficient and correct solutions quickly. This event strengthens logical thinking and programming speed.",
+  "accentColor": "#10B981",
+  "technologies": [
+    "C++20",
+    "Java",
+    "Python 3",
+    "Algorithms",
+    "Competitive Coding"
+  ],
+  "highlights": [
+    "40 Participants",
+    "Live Real-Time Leaderboard",
+    "Rapid-Fire Blitz Rounds",
+    "Cash & Merch Prizes"
+  ],
+  "resources": [
+    {
+      "type": "images",
+      "label": "Event Images",
+      "url": "https://drive.google.com/drive/folders/1XmgCXkS6d2CIohpc7vfu5E-boZRZBFnv?usp=sharing"
+    }
+  ]
+}

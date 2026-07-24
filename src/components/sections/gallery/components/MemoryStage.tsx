@@ -2,9 +2,12 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { Memory } from "../data/memories";
 import { MemoryOverlay } from "./MemoryOverlay";
 import { stageVariants } from "../animations";
+
+const MotionImage = motion(Image);
 
 interface MemoryStageProps {
   memory: Memory;
@@ -40,9 +43,13 @@ export function MemoryStage({
           className="absolute inset-0 w-full h-full"
         >
           {/* Main Cinematic Image with Horizontal Motion & Ambient Scale */}
-          <motion.img
+          <MotionImage
             src={memory.image}
-            alt={memory.title}
+            alt={`${memory.title} cover photo hosted by TechSpace`}
+            fill
+            priority
+            unoptimized
+            sizes="(max-width: 1024px) 100vw, 75vw"
             animate={{
               scale: [1, 1.05],
               x: [-10, 10],

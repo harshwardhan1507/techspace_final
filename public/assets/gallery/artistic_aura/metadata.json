@@ -1,0 +1,25 @@
+{
+  "id": "mem-artistic-aura",
+  "title": "Artistic Aura",
+  "coverImage": "/assets/gallery/artistic_aura/IMG-20260313-WA0088.jpg",
+  "eventImage": "/assets/gallery/artistic_aura/IMG-20260313-WA0088.jpg",
+  "category": "Verge Event",
+  "date": "14th March 2026",
+  "location": "5th Floor Labs",
+  "participants": "30 Designers",
+  "duration": "3 Hours",
+  "track": "UI/UX & Digital Art",
+  "quote": "Bridging the gap between software engineering and visual art.",
+  "story": "Exhibition showcasing UI/UX concepts, digital vector art, generative visuals, and creative tech design projects.",
+  "description": "Artistic Aura is a digital design competition where students create original artwork, graphics, and visual designs. Participants showcase their creativity and design skills using digital tools. This event encourages artistic expression and creativity.",
+  "accentColor": "#EC4899",
+  "technologies": ["Figma", "Blender", "Three.js", "Generative Art", "UI/UX Systems"],
+  "highlights": ["35 Student Designers", "Interactive 3D Web Demos", "Generative Shader Exhibits", "Industry Expert Reviews"],
+  "resources": [
+    {
+      "type": "image",
+      "label": "Event Images",
+      "url": "https://drive.google.com/drive/folders/1Abwsix4306EiBnV97K1_Wa-F7DtdfXyn?usp=sharing"
+    }
+  ]
+}

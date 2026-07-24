@@ -1,0 +1,452 @@
+[
+  {
+    "folderName": "memocracy",
+    "id": "mem-memocracy",
+    "title": "Memocracy",
+    "category": "Verge Event",
+    "date": "13th March 2026",
+    "location": "5th Floor Labs",
+    "participants": "10+ Contestants",
+    "duration": "2 Hours",
+    "track": "Meme Making Competition",
+    "quote": "Where creativity, humor, and digital expression come together.",
+    "story": "Memocracy is a creative competition where students design and create memes based on given themes, showcasing humor, originality, and communication through digital content.",
+    "description": "Memocracy is a meme-making competition that challenges participants to create engaging and creative memes around assigned themes or topics. The event encourages students to combine humor, creativity, and storytelling while expressing ideas through digital content creation in a fun and competitive environment.",
+    "image": "/assets/gallery/memocracy/Copy%20of%20IMG20260313150508.jpg",
+    "eventImage": "/assets/gallery/memocracy/Copy%20of%20IMG20260313150508.jpg",
+    "accentColor": "#06B6D4",
+    "images": [
+      "/assets/gallery/memocracy/Copy%20of%20IMG20260313150508.jpg",
+      "/assets/gallery/memocracy/Copy%20of%20IMG20260313153229.jpg",
+      "/assets/gallery/memocracy/Copy%20of%20IMG20260313153230_01.jpg",
+      "/assets/gallery/memocracy/Copy%20of%20IMG20260313153233_01.jpg",
+      "/assets/gallery/memocracy/Copy%20of%20IMG20260313153235_01.jpg"
+    ],
+    "gallery": [
+      {
+        "id": "img-memocracy-1",
+        "src": "/assets/gallery/memocracy/Copy%20of%20IMG20260313150508.jpg",
+        "caption": "Memocracy",
+        "alt": "Students participating during the Memocracy organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-memocracy-2",
+        "src": "/assets/gallery/memocracy/Copy%20of%20IMG20260313153229.jpg",
+        "caption": "Memocracy",
+        "alt": "Students participating during the Memocracy organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-memocracy-3",
+        "src": "/assets/gallery/memocracy/Copy%20of%20IMG20260313153230_01.jpg",
+        "caption": "Memocracy",
+        "alt": "Students participating during the Memocracy organized by TechSpace.",
+        "aspectRatio": "tall"
+      },
+      {
+        "id": "img-memocracy-4",
+        "src": "/assets/gallery/memocracy/Copy%20of%20IMG20260313153233_01.jpg",
+        "caption": "Memocracy",
+        "alt": "Students participating during the Memocracy organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-memocracy-5",
+        "src": "/assets/gallery/memocracy/Copy%20of%20IMG20260313153235_01.jpg",
+        "caption": "Memocracy",
+        "alt": "Students participating during the Memocracy organized by TechSpace.",
+        "aspectRatio": "square"
+      }
+    ],
+    "highlights": [
+      "Theme-Based Meme Creation",
+      "Creative Digital Content",
+      "Humor & Visual Storytelling",
+      "Student Creativity Showcase"
+    ],
+    "technologies": [
+      "Digital Art",
+      "Graphic Design",
+      "Canva",
+      "Figma",
+      "Creative Storytelling"
+    ],
+    "resources": [
+      {
+        "type": "images",
+        "label": "Event Images",
+        "url": "https://drive.google.com/drive/folders/1fPJDEfqexCrNolQxd8bAiJ-KIz1D7tRj?usp=sharing"
+      }
+    ]
+  },
+  {
+    "folderName": "codeblitz",
+    "id": "mem-codeblitz",
+    "title": "CodeBlitz",
+    "category": "Verge Event",
+    "date": "13th March 2026",
+    "location": "5th Floor Labs",
+    "participants": "40 Participants",
+    "duration": "1.5 Hours",
+    "track": "Competitive Programming",
+    "quote": "360 seconds on the clock. Pure algorithmic speed.",
+    "story": "High-octane competitive programming sprint testing rapid problem solving, clean execution, and endurance under pressure.",
+    "description": "Code Blitz is a competitive programming event where students solve coding problems under time constraints. Participants compete to write efficient and correct solutions quickly. This event strengthens logical thinking and programming speed.",
+    "image": "/assets/gallery/codeblitz/IMG-20260313-WA0084.jpg",
+    "eventImage": "/assets/gallery/codeblitz/IMG-20260313-WA0084.jpg",
+    "accentColor": "#10B981",
+    "images": [
+      "/assets/gallery/codeblitz/IMG-20260313-WA0055.jpg",
+      "/assets/gallery/codeblitz/IMG-20260313-WA0080.jpg",
+      "/assets/gallery/codeblitz/IMG-20260313-WA0084.jpg",
+      "/assets/gallery/codeblitz/IMG-20260313-WA0086.jpg",
+      "/assets/gallery/codeblitz/IMG-20260313-WA0091.jpg"
+    ],
+    "gallery": [
+      {
+        "id": "img-codeblitz-1",
+        "src": "/assets/gallery/codeblitz/IMG-20260313-WA0055.jpg",
+        "caption": "CodeBlitz",
+        "alt": "Students participating during the CodeBlitz organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-codeblitz-2",
+        "src": "/assets/gallery/codeblitz/IMG-20260313-WA0080.jpg",
+        "caption": "CodeBlitz",
+        "alt": "Students participating during the CodeBlitz organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-codeblitz-3",
+        "src": "/assets/gallery/codeblitz/IMG-20260313-WA0084.jpg",
+        "caption": "CodeBlitz",
+        "alt": "Students participating during the CodeBlitz organized by TechSpace.",
+        "aspectRatio": "tall"
+      },
+      {
+        "id": "img-codeblitz-4",
+        "src": "/assets/gallery/codeblitz/IMG-20260313-WA0086.jpg",
+        "caption": "CodeBlitz",
+        "alt": "Students participating during the CodeBlitz organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-codeblitz-5",
+        "src": "/assets/gallery/codeblitz/IMG-20260313-WA0091.jpg",
+        "caption": "CodeBlitz",
+        "alt": "Students participating during the CodeBlitz organized by TechSpace.",
+        "aspectRatio": "square"
+      }
+    ],
+    "highlights": [
+      "40 Participants",
+      "Live Real-Time Leaderboard",
+      "Rapid-Fire Blitz Rounds",
+      "Cash & Merch Prizes"
+    ],
+    "technologies": [
+      "C++20",
+      "Java",
+      "Python 3",
+      "Algorithms",
+      "Competitive Coding"
+    ],
+    "resources": [
+      {
+        "type": "images",
+        "label": "Event Images",
+        "url": "https://drive.google.com/drive/folders/1XmgCXkS6d2CIohpc7vfu5E-boZRZBFnv?usp=sharing"
+      }
+    ]
+  },
+  {
+    "folderName": "artistic_aura",
+    "id": "mem-artistic-aura",
+    "title": "Artistic Aura",
+    "category": "Verge Event",
+    "date": "14th March 2026",
+    "location": "5th Floor Labs",
+    "participants": "30 Designers",
+    "duration": "3 Hours",
+    "track": "UI/UX & Digital Art",
+    "quote": "Bridging the gap between software engineering and visual art.",
+    "story": "Exhibition showcasing UI/UX concepts, digital vector art, generative visuals, and creative tech design projects.",
+    "description": "Artistic Aura is a digital design competition where students create original artwork, graphics, and visual designs. Participants showcase their creativity and design skills using digital tools. This event encourages artistic expression and creativity.",
+    "image": "/assets/gallery/artistic_aura/IMG-20260313-WA0088.jpg",
+    "eventImage": "/assets/gallery/artistic_aura/IMG-20260313-WA0088.jpg",
+    "accentColor": "#EC4899",
+    "images": [
+      "/assets/gallery/artistic_aura/IMG-20260313-WA0054.jpg",
+      "/assets/gallery/artistic_aura/IMG-20260313-WA0055.jpg",
+      "/assets/gallery/artistic_aura/IMG-20260313-WA0059.jpg",
+      "/assets/gallery/artistic_aura/IMG-20260313-WA0081.jpg",
+      "/assets/gallery/artistic_aura/IMG-20260313-WA0083.jpg",
+      "/assets/gallery/artistic_aura/IMG-20260313-WA0088.jpg"
+    ],
+    "gallery": [
+      {
+        "id": "img-artistic_aura-1",
+        "src": "/assets/gallery/artistic_aura/IMG-20260313-WA0054.jpg",
+        "caption": "Artistic Aura",
+        "alt": "Students participating during the Artistic Aura organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-artistic_aura-2",
+        "src": "/assets/gallery/artistic_aura/IMG-20260313-WA0055.jpg",
+        "caption": "Artistic Aura",
+        "alt": "Students participating during the Artistic Aura organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-artistic_aura-3",
+        "src": "/assets/gallery/artistic_aura/IMG-20260313-WA0059.jpg",
+        "caption": "Artistic Aura",
+        "alt": "Students participating during the Artistic Aura organized by TechSpace.",
+        "aspectRatio": "tall"
+      },
+      {
+        "id": "img-artistic_aura-4",
+        "src": "/assets/gallery/artistic_aura/IMG-20260313-WA0081.jpg",
+        "caption": "Artistic Aura",
+        "alt": "Students participating during the Artistic Aura organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-artistic_aura-5",
+        "src": "/assets/gallery/artistic_aura/IMG-20260313-WA0083.jpg",
+        "caption": "Artistic Aura",
+        "alt": "Students participating during the Artistic Aura organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-artistic_aura-6",
+        "src": "/assets/gallery/artistic_aura/IMG-20260313-WA0088.jpg",
+        "caption": "Artistic Aura",
+        "alt": "Students participating during the Artistic Aura organized by TechSpace.",
+        "aspectRatio": "tall"
+      }
+    ],
+    "highlights": [
+      "35 Student Designers",
+      "Interactive 3D Web Demos",
+      "Generative Shader Exhibits",
+      "Industry Expert Reviews"
+    ],
+    "technologies": [
+      "Figma",
+      "Blender",
+      "Three.js",
+      "Generative Art",
+      "UI/UX Systems"
+    ],
+    "resources": [
+      {
+        "type": "image",
+        "label": "Event Images",
+        "url": "https://drive.google.com/drive/folders/1Abwsix4306EiBnV97K1_Wa-F7DtdfXyn?usp=sharing"
+      }
+    ]
+  },
+  {
+    "folderName": "Java_gui_workshop",
+    "id": "mem-java-gui",
+    "title": "Java GUI Workshop",
+    "category": "WORKSHOP",
+    "date": "19th November, 2025",
+    "location": "5th Floor Labs",
+    "participants": "45 Attendees",
+    "duration": "2 days",
+    "track": "Desktop Software Engineering",
+    "quote": "Designing interactive visual interfaces from scratch.",
+    "story": "Crafting desktop software applications, event-driven layouts, and graphical user interfaces using Java frameworks.",
+    "description": "An engaging desktop application design workshop exploring event listener architectures, window layout managers, and custom graphical components in Java. Students designed full desktop utilities and interactive tools from scratch.",
+    "image": "/assets/gallery/Java_gui_workshop/DSC_8732.JPG",
+    "eventImage": "/assets/gallery/Java_gui_workshop/DSC_8732.JPG",
+    "accentColor": "#8B5CF6",
+    "images": [
+      "/assets/gallery/Java_gui_workshop/20251119_41208PMByGPSMapCamera.jpg",
+      "/assets/gallery/Java_gui_workshop/DSC_8709.JPG",
+      "/assets/gallery/Java_gui_workshop/DSC_8710.JPG",
+      "/assets/gallery/Java_gui_workshop/DSC_8717.JPG",
+      "/assets/gallery/Java_gui_workshop/DSC_8720.JPG",
+      "/assets/gallery/Java_gui_workshop/DSC_8723.JPG",
+      "/assets/gallery/Java_gui_workshop/DSC_8732.JPG",
+      "/assets/gallery/Java_gui_workshop/IMG_20251119_125033.jpg",
+      "/assets/gallery/Java_gui_workshop/PXL_20251119_060156157.jpg"
+    ],
+    "gallery": [
+      {
+        "id": "img-java_gui_workshop-1",
+        "src": "/assets/gallery/Java_gui_workshop/20251119_41208PMByGPSMapCamera.jpg",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-java_gui_workshop-2",
+        "src": "/assets/gallery/Java_gui_workshop/DSC_8709.JPG",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-java_gui_workshop-3",
+        "src": "/assets/gallery/Java_gui_workshop/DSC_8710.JPG",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "tall"
+      },
+      {
+        "id": "img-java_gui_workshop-4",
+        "src": "/assets/gallery/Java_gui_workshop/DSC_8717.JPG",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-java_gui_workshop-5",
+        "src": "/assets/gallery/Java_gui_workshop/DSC_8720.JPG",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-java_gui_workshop-6",
+        "src": "/assets/gallery/Java_gui_workshop/DSC_8723.JPG",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "tall"
+      },
+      {
+        "id": "img-java_gui_workshop-7",
+        "src": "/assets/gallery/Java_gui_workshop/DSC_8732.JPG",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-java_gui_workshop-8",
+        "src": "/assets/gallery/Java_gui_workshop/IMG_20251119_125033.jpg",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-java_gui_workshop-9",
+        "src": "/assets/gallery/Java_gui_workshop/PXL_20251119_060156157.jpg",
+        "caption": "Java GUI Workshop",
+        "alt": "Students participating during the Java GUI Workshop organized by TechSpace.",
+        "aspectRatio": "tall"
+      }
+    ],
+    "highlights": [
+      "Custom GUI Component Design",
+      "Event Listener Architecture",
+      "Desktop App Packaging",
+      "UI Layout Managers"
+    ],
+    "technologies": [
+      "JavaFX",
+      "Swing",
+      "Event Dispatcher",
+      "CSS Styling",
+      "Object-Oriented UI"
+    ],
+    "resources": [
+      {
+        "type": "photos",
+        "label": "Event Images",
+        "url": "https://drive.google.com/drive/folders/160Tn5EVM9UgTtqqExQcI336FaQ_gMRsG?usp=sharing"
+      }
+    ]
+  },
+  {
+    "folderName": "devops_workshop",
+    "id": "mem-devops",
+    "title": "DevOps Workshop",
+    "category": "WORKSHOP",
+    "date": "18th November, 2025",
+    "location": "Cloud Studio",
+    "participants": "50 Attendees",
+    "duration": "5 Hours",
+    "track": "Cloud & Infrastructure",
+    "quote": "Automating deployments from local commit to cloud server.",
+    "story": "Hands-on containerization with Docker, setting up automated CI/CD pipelines, and mastering cloud deployment workflows.",
+    "description": "A comprehensive practical workshop empowering students to build production-grade deployment pipelines. Attendees containerized full-stack web applications, configured GitHub Actions workflows, and deployed microservices live to cloud infrastructure.",
+    "image": "/assets/gallery/devops_workshop/20251118_154526.jpg",
+    "eventImage": "/assets/gallery/devops_workshop/20251118_154526.jpg",
+    "accentColor": "#2563EB",
+    "images": [
+      "/assets/gallery/devops_workshop/20251118_30311PMByGPSMapCamera.jpg",
+      "/assets/gallery/devops_workshop/20251118_32640PMByGPSMapCamera.jpg",
+      "/assets/gallery/devops_workshop/20251118_150610.jpg",
+      "/assets/gallery/devops_workshop/20251118_154009.jpg",
+      "/assets/gallery/devops_workshop/20251118_154526.jpg"
+    ],
+    "gallery": [
+      {
+        "id": "img-devops_workshop-1",
+        "src": "/assets/gallery/devops_workshop/20251118_30311PMByGPSMapCamera.jpg",
+        "caption": "DevOps Workshop",
+        "alt": "Students participating during the DevOps Workshop organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-devops_workshop-2",
+        "src": "/assets/gallery/devops_workshop/20251118_32640PMByGPSMapCamera.jpg",
+        "caption": "DevOps Workshop",
+        "alt": "Students participating during the DevOps Workshop organized by TechSpace.",
+        "aspectRatio": "square"
+      },
+      {
+        "id": "img-devops_workshop-3",
+        "src": "/assets/gallery/devops_workshop/20251118_150610.jpg",
+        "caption": "DevOps Workshop",
+        "alt": "Students participating during the DevOps Workshop organized by TechSpace.",
+        "aspectRatio": "tall"
+      },
+      {
+        "id": "img-devops_workshop-4",
+        "src": "/assets/gallery/devops_workshop/20251118_154009.jpg",
+        "caption": "DevOps Workshop",
+        "alt": "Students participating during the DevOps Workshop organized by TechSpace.",
+        "aspectRatio": "wide"
+      },
+      {
+        "id": "img-devops_workshop-5",
+        "src": "/assets/gallery/devops_workshop/20251118_154526.jpg",
+        "caption": "DevOps Workshop",
+        "alt": "Students participating during the DevOps Workshop organized by TechSpace.",
+        "aspectRatio": "square"
+      }
+    ],
+    "highlights": [
+      "100% Live Container Builds",
+      "Automated Testing Workflows",
+      "Zero-Downtime Deployments",
+      "Production Cloud Clusters"
+    ],
+    "technologies": [
+      "Docker",
+      "GitHub Actions",
+      "Linux CLI",
+      "Nginx",
+      "CI/CD Pipelines"
+    ],
+    "resources": [
+      {
+        "type": "github",
+        "label": "GitHub Repository",
+        "url": "https://github.com/harshwardhan1507/techspace_final"
+      },
+      {
+        "type": "document",
+        "label": "Workshop Slides",
+        "url": "https://techspace.dev/resources/devops-guide.pdf"
+      }
+    ]
+  }
+]

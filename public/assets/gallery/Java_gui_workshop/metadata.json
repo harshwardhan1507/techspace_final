@@ -1,0 +1,36 @@
+{
+  "id": "mem-java-gui",
+  "title": "Java GUI Workshop",
+  "coverImage": "/assets/gallery/Java_gui_workshop/DSC_8732.JPG",
+  "eventImage": "/assets/gallery/Java_gui_workshop/DSC_8732.JPG",
+  "category": "WORKSHOP",
+  "date": "19th November, 2025",
+  "location": "5th Floor Labs",
+  "participants": "45 Attendees",
+  "duration": "2 days",
+  "track": "Desktop Software Engineering",
+  "quote": "Designing interactive visual interfaces from scratch.",
+  "story": "Crafting desktop software applications, event-driven layouts, and graphical user interfaces using Java frameworks.",
+  "description": "An engaging desktop application design workshop exploring event listener architectures, window layout managers, and custom graphical components in Java. Students designed full desktop utilities and interactive tools from scratch.",
+  "accentColor": "#8B5CF6",
+  "technologies": [
+    "JavaFX",
+    "Swing",
+    "Event Dispatcher",
+    "CSS Styling",
+    "Object-Oriented UI"
+  ],
+  "highlights": [
+    "Custom GUI Component Design",
+    "Event Listener Architecture",
+    "Desktop App Packaging",
+    "UI Layout Managers"
+  ],
+  "resources": [
+    {
+      "type": "photos",
+      "label": "Event Images",
+      "url": "https://drive.google.com/drive/folders/160Tn5EVM9UgTtqqExQcI336FaQ_gMRsG?usp=sharing"
+    }
+  ]
+}

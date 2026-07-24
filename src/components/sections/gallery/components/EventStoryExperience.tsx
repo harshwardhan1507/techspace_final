@@ -2,9 +2,44 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MapPin, Calendar, Users, Clock, Tag, ExternalLink, Sparkles, Quote, ArrowLeft } from "lucide-react";
-import { Memory, GalleryImage } from "../data/memories";
+import Image from "next/image";
+import { 
+  X, MapPin, Calendar, Users, Clock, Tag, ExternalLink, Sparkles, Quote, ArrowLeft,
+  FolderGit2, HardDrive, Camera, Video, Award, Globe, UserPlus, FileText, Link as LinkIcon 
+} from "lucide-react";
+import { Memory, GalleryImage, Resource, ResourceType } from "../data/memories";
 import { FullscreenImageViewer } from "./FullscreenImageViewer";
+
+const MotionImage = motion(Image);
+
+function getResourceIcon(type: ResourceType | string) {
+  switch (type?.toLowerCase()) {
+    case "github":
+      return <FolderGit2 className="w-4 h-4" />;
+    case "drive":
+      return <HardDrive className="w-4 h-4" />;
+    case "photos":
+    case "photo":
+    case "images":
+    case "image":
+      return <Camera className="w-4 h-4" />;
+    case "youtube":
+    case "video":
+      return <Video className="w-4 h-4" />;
+    case "certificate":
+      return <Award className="w-4 h-4" />;
+    case "website":
+      return <Globe className="w-4 h-4" />;
+    case "registration":
+      return <UserPlus className="w-4 h-4" />;
+    case "document":
+    case "slides":
+      return <FileText className="w-4 h-4" />;
+    case "custom":
+    default:
+      return <LinkIcon className="w-4 h-4" />;
+  }
+}
 
 interface EventStoryExperienceProps {
   memory: Memory | null;
@@ -98,9 +133,12 @@ export function EventStoryExperience({
 
             {/* ---------------- CINEMATIC HERO BANNER ---------------- */}
             <div className="relative w-full h-[420px] sm:h-[520px] overflow-hidden">
-              <motion.img
+              <MotionImage
                 src={memory.image}
-                alt={memory.title}
+                alt={`${memory.title} banner photo hosted by TechSpace`}
+                fill
+                priority
+                unoptimized
                 animate={{ scale: [1, 1.04] }}
                 transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                 className="w-full h-full object-cover filter brightness-[0.85]"
@@ -225,20 +263,23 @@ export function EventStoryExperience({
                           isWide ? "sm:col-span-2" : "col-span-1"
                         } h-64 sm:h-72`}
                       >
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
+                        <Image
                           src={img.src}
-                          alt={img.caption}
-                          loading="lazy"
+                          alt={img.alt || `Students participating during the ${memory.title} organized by TechSpace.`}
+                          fill
+                          unoptimized
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                           className="w-full h-full object-cover filter contrast-[1.05] brightness-90 group-hover:scale-105 transition-transform duration-500"
                         />
 
                         {/* Caption Glass Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-                          <p className="text-xs font-medium text-white line-clamp-2">
-                            {img.caption}
-                          </p>
-                        </div>
+                        {img.caption && (
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+                            <p className="text-xs font-medium text-white line-clamp-2">
+                              {img.caption}
+                            </p>
+                          </div>
+                        )}
                       </motion.div>
                     );
                   })}
@@ -284,35 +325,29 @@ export function EventStoryExperience({
                 </div>
               )}
 
-              {/* ---------------- RESOURCES LINKS ---------------- */}
-              {memory.resources && (
+              {/* ---------------- DYNAMIC EVENT RESOURCES ---------------- */}
+              {memory.resources && memory.resources.length > 0 && (
                 <div className="space-y-3 pt-4 border-t border-white/10">
-                  <h2 className="text-sm font-mono font-bold uppercase tracking-wider text-neutral-400">
-                    Workshop Resources
+                  <h2 className="text-sm font-mono font-bold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
+                    <LinkIcon className="w-4 h-4 text-sky-400" />
+                    <span>Event Resources & Links</span>
                   </h2>
                   <div className="flex flex-wrap gap-3">
-                    {memory.resources.github && (
+                    {memory.resources.map((res: Resource, idx: number) => (
                       <a
-                        href={memory.resources.github}
+                        key={res.url + idx}
+                        href={res.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-semibold transition-all cursor-pointer"
+                        className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-semibold transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group"
                       >
-                        <span>GitHub Repository</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span className="text-neutral-300 group-hover:text-white transition-colors">
+                          {getResourceIcon(res.type)}
+                        </span>
+                        <span>{res.label}</span>
+                        <ExternalLink className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </a>
-                    )}
-                    {memory.resources.slides && (
-                      <a
-                        href={memory.resources.slides}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white text-xs font-semibold transition-all cursor-pointer"
-                      >
-                        <span>Workshop Slides</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
+                    ))}
                   </div>
                 </div>
               )}

@@ -1,0 +1,41 @@
+{
+  "id": "mem-devops",
+  "title": "DevOps Workshop",
+  "coverImage": "/assets/gallery/devops_workshop/20251118_154526.jpg",
+  "eventImage": "/assets/gallery/devops_workshop/20251118_154526.jpg",
+  "category": "WORKSHOP",
+  "date": "18th November, 2025",
+  "location": "Cloud Studio",
+  "participants": "50 Attendees",
+  "duration": "5 Hours",
+  "track": "Cloud & Infrastructure",
+  "quote": "Automating deployments from local commit to cloud server.",
+  "story": "Hands-on containerization with Docker, setting up automated CI/CD pipelines, and mastering cloud deployment workflows.",
+  "description": "A comprehensive practical workshop empowering students to build production-grade deployment pipelines. Attendees containerized full-stack web applications, configured GitHub Actions workflows, and deployed microservices live to cloud infrastructure.",
+  "accentColor": "#2563EB",
+  "technologies": [
+    "Docker",
+    "GitHub Actions",
+    "Linux CLI",
+    "Nginx",
+    "CI/CD Pipelines"
+  ],
+  "highlights": [
+    "100% Live Container Builds",
+    "Automated Testing Workflows",
+    "Zero-Downtime Deployments",
+    "Production Cloud Clusters"
+  ],
+  "resources": [
+    {
+      "type": "github",
+      "label": "GitHub Repository",
+      "url": "https://github.com/harshwardhan1507/techspace_final"
+    },
+    {
+      "type": "document",
+      "label": "Workshop Slides",
+      "url": "https://techspace.dev/resources/devops-guide.pdf"
+    }
+  ]
+}

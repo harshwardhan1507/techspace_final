@@ -1,0 +1,36 @@
+{
+  "id": "mem-memocracy",
+  "title": "Memocracy",
+  "coverImage": "/assets/gallery/memocracy/Copy%20of%20IMG20260313150508.jpg",
+  "eventImage": "/assets/gallery/memocracy/Copy%20of%20IMG20260313150508.jpg",
+  "category": "Verge Event",
+  "date": "13th March 2026",
+  "location": "5th Floor Labs",
+  "participants": "10+ Contestants",
+  "duration": "2 Hours",
+  "track": "Meme Making Competition",
+  "quote": "Where creativity, humor, and digital expression come together.",
+  "story": "Memocracy is a creative competition where students design and create memes based on given themes, showcasing humor, originality, and communication through digital content.",
+  "description": "Memocracy is a meme-making competition that challenges participants to create engaging and creative memes around assigned themes or topics. The event encourages students to combine humor, creativity, and storytelling while expressing ideas through digital content creation in a fun and competitive environment.",
+  "accentColor": "#06B6D4",
+  "technologies": [
+    "Digital Art",
+    "Graphic Design",
+    "Canva",
+    "Figma",
+    "Creative Storytelling"
+  ],
+  "highlights": [
+    "Theme-Based Meme Creation",
+    "Creative Digital Content",
+    "Humor & Visual Storytelling",
+    "Student Creativity Showcase"
+  ],
+  "resources": [
+    {
+      "type": "images",
+      "label": "Event Images",
+      "url": "https://drive.google.com/drive/folders/1fPJDEfqexCrNolQxd8bAiJ-KIz1D7tRj?usp=sharing"
+    }
+  ]
+}
